@@ -119,6 +119,10 @@ body {
 	padding: $container-padding;
 }
 
+.post-card-content-link {
+	@include material-container--secondary;
+}
+
 .post-card-primary-tag {
 	@include material-button--basic-tertiary;
 }
