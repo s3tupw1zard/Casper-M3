@@ -1,6 +1,12 @@
 @import "material-you";
 @import "fonts/font-material-symbols";
 
+@media (prefers-reduced-motion: no-preference) {
+    :root {
+        scroll-behavior: smooth;
+    }
+}
+
 ::-webkit-scrollbar {
     background: #23005c;
     background: #{var(--md-sys-color-background)};
@@ -49,4 +55,35 @@ body {
 
 .has-cover:not(.home-template) .gh-head {
 	@include material-container--primary;
+}
+
+.site-footer {
+	@include material-container--primary;
+	border-radius: $container-border-radius $container-border-radius 0 0;
+	display: flex;
+	flex-direction: column;
+
+	&__scroll-header {
+		margin-top: -8.5rem;
+        margin-bottom: 7rem;
+        justify-content: center;
+        display: flex;
+	}
+
+	&__scroll-to-top-container {
+		@include theme-transition;
+		@include material-colored--primary;
+		@include material-mask--zany-square;
+		width: 7rem;
+		height: 7rem;
+		padding: 1rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-decoration: none;
+	}
+
+	&__scroll-icon {
+		font-size: 2.5rem;
+	}
 }

@@ -81,6 +81,13 @@
 
     {{!-- The global footer at the very bottom of the screen --}}
     <footer class="site-footer outer">
+        <header class="site-footer__scroll-header">
+            <a class="site-footer__scroll-to-top-container" href="#gh-head">
+                <span class="site-footer__scroll-icon material-symbols-rounded">
+                    keyboard_double_arrow_up
+                </span>
+            </a>
+        </header>
         <div class="inner">
             <section class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</section>
             <nav class="site-footer-nav">
