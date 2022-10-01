@@ -765,7 +765,7 @@ body:not(.gh-head-open) .gh-burger:hover .gh-burger-inner::after {
 .post-card-content-link {
     position: relative;
     display: block;
-    color: var(--color-darkgrey);
+    /* color: var(--color-darkgrey); */
 }
 
 .post-card-content-link:hover {
