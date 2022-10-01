@@ -119,7 +119,22 @@ body {
     overflow: hidden;
 }
 
-.post-card-meta-date {
+.post-card-excerpt {
+	margin-bottom: 2rem;
+}
+
+.post-card-meta {
+	margin-top: auto;
+}
+
+.post-card-meta-date, .post-card-meta-length {
 	@include material-button--filled-primary;
-	// @include material-inverted--tertiary;
+	&__icon {
+		font-size: 1.5rem;
+		margin-right: 0rem;
+	}
+}
+
+.post-card-meta>*+:not(script):before {
+	display: none;
 }
