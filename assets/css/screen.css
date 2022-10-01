@@ -120,8 +120,8 @@ production stylesheet in assets/built/screen.css
 
 .has-cover .site-header-content {
     min-height: 560px;
-    background-color: var(--ghost-accent-color);
-    color: #fff;
+    /* background-color: var(--ghost-accent-color); */
+    /* color: #fff; */
 }
 
 body:not(.has-cover) .site-header-content:not(.left-aligned) {
@@ -206,13 +206,13 @@ body:not(.has-cover) .site-header-content:not(.left-aligned) {
 }
 
 .site-title + .site-description {
-    color: var(--color-secondary-text);
+    /* color: var(--color-secondary-text); */
 }
 
 .has-cover .site-description {
     font-size: 3.2rem;
     letter-spacing: -0.005em;
-    color: #fff;
+    /* color: #fff; */
 }
 
 .has-cover :is(.site-logo, .site-title) + .site-description {
@@ -510,7 +510,7 @@ body:not(.has-cover) .site-header-content:not(.left-aligned) {
 }
 
 .has-cover .gh-burger-box {
-    color: #fff;
+    /* color: #fff; */
 }
 
 .gh-burger-inner {
