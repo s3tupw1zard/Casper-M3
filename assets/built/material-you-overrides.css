@@ -130,6 +130,15 @@ body {
   margin-left: 0;
 }
 
+.site-footer-nav ul {
+  margin-left: 4rem;
+}
+@media (max-width: 767px) {
+  .site-footer-nav ul {
+    margin-left: 0rem;
+  }
+}
+
 .post-card {
   transition: background 0.25s ease, color 0.25s ease;
   color: var(--md-sys-color-on-secondary-container);
@@ -202,14 +211,5 @@ body {
 
 .post-card-meta > * + :not(script):before {
   display: none;
-}
-
-.site-footer-nav ul {
-  margin-left: 4rem;
-}
-@media (max-width: 767px) {
-  .site-footer-nav ul {
-    margin-left: 0rem;
-  }
 }
 /*# sourceMappingURL=material-you-overrides.css.map */
