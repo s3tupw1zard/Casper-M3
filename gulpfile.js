@@ -23,6 +23,9 @@ const REPO = 'TryGhost/Casper';
 const REPO_READONLY = 'TryGhost/Casper';
 const CHANGELOG_PATH = path.join(process.cwd(), '.', 'changelog.md');
 
+// sass
+const sass = require('gulp-sass')(require('sass'));
+
 function serve(done) {
     livereload.listen();
     done();
@@ -53,6 +56,15 @@ function css(done) {
             autoprefixer(),
             cssnano()
         ]),
+        dest('assets/built/', {sourcemaps: '.'}),
+        livereload()
+    ], handleError(done));
+}
+
+function scss(done) {
+    pump([
+        src('assets/sass/*.scss', {sourcemaps: true}),
+        sass(),
         dest('assets/built/', {sourcemaps: '.'}),
         livereload()
     ], handleError(done));
@@ -89,10 +101,11 @@ function zipper(done) {
     ], handleError(done));
 }
 
+const scssWatcher = () => watch('assets/sass/**', scss);
 const cssWatcher = () => watch('assets/css/**', css);
 const hbsWatcher = () => watch(['*.hbs', 'partials/**/*.hbs'], hbs);
-const watcher = parallel(cssWatcher, hbsWatcher);
-const build = series(css, js);
+const watcher = parallel(cssWatcher, hbsWatcher, scssWatcher);
+const build = series(css, js, scss);
 
 exports.build = build;
 exports.zip = series(build, zipper);
