@@ -87,3 +87,27 @@ body {
 		font-size: 2.5rem;
 	}
 }
+
+.post-card {
+	@include material-container--secondary;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.post-card-content {
+	padding: $container-padding;
+}
+
+.post-card-primary-tag {
+	@include material-button--basic-tertiary;
+}
+
+.post-card-image {
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.post-card-meta-date {
+	@include material-button--filled-primary;
+	// @include material-inverted--tertiary;
+}
