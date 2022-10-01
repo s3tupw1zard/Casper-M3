@@ -271,7 +271,7 @@ body:not(.has-cover) .site-header-content:not(.left-aligned) {
     left: 0;
     z-index: 2000;
     background-color: transparent;
-    color: #fff;
+    /* color: #fff; */
 }
 
 .gh-head a {

@@ -88,6 +88,18 @@ body {
 	}
 }
 
+.site-footer-nav a {
+	margin-left: 0;
+}
+
+.site-footer-nav ul {
+	margin-left: 4rem;
+
+	@media (max-width: 767px) {
+		margin-left: 0rem;
+	}
+}
+
 .post-card {
 	@include material-container--secondary;
     border-radius: 2rem;
