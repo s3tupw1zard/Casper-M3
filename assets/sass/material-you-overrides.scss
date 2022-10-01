@@ -43,6 +43,10 @@ body {
     mask: linear-gradient(to right,transparent 45%,#000);
 }
 
-.gh-search {
-	color: #{var(--md-sys-color-on-primary-container)};
+.gh-search, .gh-burger {
+    color: inherit;
+}
+
+.has-cover:not(.home-template) .gh-head {
+	@include material-container--primary;
 }

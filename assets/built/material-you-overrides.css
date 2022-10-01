@@ -44,7 +44,13 @@ body {
   mask: linear-gradient(to right, transparent 45%, #000);
 }
 
-.gh-search {
+.gh-search, .gh-burger {
+  color: inherit;
+}
+
+.has-cover:not(.home-template) .gh-head {
+  transition: background 0.25s ease, color 0.25s ease;
   color: var(--md-sys-color-on-primary-container);
+  background-color: var(--md-sys-color-primary-container);
 }
 /*# sourceMappingURL=material-you-overrides.css.map */
