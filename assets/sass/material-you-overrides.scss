@@ -1,6 +1,12 @@
 @import "material-you";
 @import "fonts/font-material-symbols";
 
+@media (prefers-reduced-motion: no-preference) {
+    :root {
+        scroll-behavior: smooth;
+    }
+}
+
 ::-webkit-scrollbar {
     background: #23005c;
     background: #{var(--md-sys-color-background)};
@@ -43,6 +49,65 @@ body {
     mask: linear-gradient(to right,transparent 45%,#000);
 }
 
-.gh-search {
-	color: #{var(--md-sys-color-on-primary-container)};
+.gh-search, .gh-burger {
+    color: inherit;
+}
+
+.has-cover:not(.home-template) .gh-head {
+	@include material-container--primary;
+}
+
+.site-footer {
+	@include material-container--primary;
+	border-radius: $container-border-radius $container-border-radius 0 0;
+	display: flex;
+	flex-direction: column;
+
+	&__scroll-header {
+		margin-top: -8.5rem;
+        margin-bottom: 7rem;
+        justify-content: center;
+        display: flex;
+	}
+
+	&__scroll-to-top-container {
+		@include theme-transition;
+		@include material-colored--primary;
+		@include material-mask--zany-square;
+		width: 7rem;
+		height: 7rem;
+		padding: 1rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-decoration: none;
+	}
+
+	&__scroll-icon {
+		font-size: 2.5rem;
+	}
+}
+
+.post-card {
+	@include material-container--secondary;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.post-card-content {
+	padding: $container-padding;
+}
+
+.post-card-primary-tag {
+	@include material-button--basic-tertiary;
+}
+
+.post-card-image {
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.post-card-meta-date {
+	@include material-button--filled-primary;
+	// @include material-inverted--tertiary;
 }

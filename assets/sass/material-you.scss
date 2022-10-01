@@ -1,7 +1,7 @@
 @import "global";
 @import "material-you--primary-styles";
-// @import "material-you/secondary";
-// @import "material-you/tertiary";
+@import "material-you--secondary-styles";
+@import "material-you--tertiary-styles";
 
 @mixin material-outline {
     border: #{var(--md-sys-color-outline)} solid 3px;
@@ -93,31 +93,31 @@
 }
 
 @mixin material-mask--jagged-circle {
-	-webkit-mask-image: url(/assets/svg/m3-jagged-circle.svg);
+	-webkit-mask-image: url(svg/m3-jagged-circle.svg);
 	-webkit-mask-repeat: no-repeat;
 	-webkit-mask-size: contain;
     -webkit-mask-position: center;
-	mask-image: url(/assets/svg/m3-jagged-circle.svg);
+	mask-image: url(svg/m3-jagged-circle.svg);
 	mask-repeat: no-repeat;
 	mask-size: contain;
     mask-position: center;
 }
 @mixin material-mask--octagonal-circle {
-	-webkit-mask-image: url(/assets/svg/m3-octagonal-circle.svg);
+	-webkit-mask-image: url(svg/m3-octagonal-circle.svg);
 	-webkit-mask-repeat: no-repeat;
 	-webkit-mask-size: contain;
     -webkit-mask-position: center;
-	mask-image: url(/assets/svg/m3-octagonal-circle.svg);
+	mask-image: url(svg/m3-octagonal-circle.svg);
 	mask-repeat: no-repeat;
 	mask-size: contain;
     mask-position: center;
 }
 @mixin material-mask--zany-square {
-	-webkit-mask-image: url(/assets/svg/m3-zany-square.svg);
+	-webkit-mask-image: url(svg/m3-zany-square.svg);
 	-webkit-mask-repeat: no-repeat;
 	-webkit-mask-size: contain;
     -webkit-mask-position: center;
-	mask-image: url(/assets/svg/m3-zany-square.svg);
+	mask-image: url(svg/m3-zany-square.svg);
 	mask-repeat: no-repeat;
 	mask-size: contain;
     mask-position: center;
