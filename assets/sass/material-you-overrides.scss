@@ -39,6 +39,10 @@ body {
 	@include theme-transition();
 }
 
+.has-cover.gh-head-open .gh-head {
+	@include material-container--tertiary;
+}
+
 .site-header-content {
 	@include material-container--primary;
     border-radius: 0rem 0rem 2rem 2rem;
