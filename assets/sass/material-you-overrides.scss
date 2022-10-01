@@ -46,3 +46,8 @@ body {
 .gh-search {
 	color: #{var(--md-sys-color-on-primary-container)};
 }
+
+.site-footer {
+	@include material-container--primary;
+	border-radius: $container-border-radius $container-border-radius 0 0;
+}

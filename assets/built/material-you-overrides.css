@@ -47,4 +47,11 @@ body {
 .gh-search {
   color: var(--md-sys-color-on-primary-container);
 }
+
+.site-footer {
+  transition: background 0.25s ease, color 0.25s ease;
+  color: var(--md-sys-color-on-primary-container);
+  background-color: var(--md-sys-color-primary-container);
+  border-radius: 2rem 2rem 0 0;
+}
 /*# sourceMappingURL=material-you-overrides.css.map */
