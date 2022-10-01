@@ -260,8 +260,8 @@ body:not(.has-cover) .site-header-content:not(.left-aligned) {
 }
 
 .has-cover:not(.home-template) .gh-head {
-    background-color: var(--ghost-accent-color);
-    color: #fff;
+    /* background-color: var(--ghost-accent-color);
+    color: #fff; */
 }
 
 .home-template.has-cover .gh-head {
@@ -310,7 +310,7 @@ body:not(.has-cover) .site-header-content:not(.left-aligned) {
 }
 
 .has-cover .gh-head-logo {
-    color: #fff;
+    /* color: #fff; */
 }
 
 .no-logo .gh-head-logo {
