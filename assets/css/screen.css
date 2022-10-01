@@ -271,7 +271,7 @@ body:not(.has-cover) .site-header-content:not(.left-aligned) {
     left: 0;
     z-index: 2000;
     background-color: transparent;
-    color: #fff;
+    /* color: #fff; */
 }
 
 .gh-head a {
@@ -877,8 +877,8 @@ body:not(.gh-head-open) .gh-burger:hover .gh-burger-inner::after {
 }
 
 .post-card-meta > * + *:not(script)::before {
-    width: 2px;
-    height: 2px;
+    width: 0px;
+    height: 0px;
     content: "";
     background-color: var(--color-secondary-text);
     border-radius: 50%;

@@ -41,11 +41,20 @@ body {
 
 .site-header-content {
 	@include material-container--primary;
-    border-radius: 2rem;
+    border-radius: 0rem 0rem 2rem 2rem;
     overflow: hidden;
 }
 
+.home-template.has-cover .gh-head {
+	color: #{var(--md-sys-color-on-primary-container)};
+}
+
+.has-cover .gh-head-button {
+	@include material-button--basic-tertiary;
+}
+
 .site-header-cover {
+    -webkit-mask: linear-gradient(to right,transparent 45%,#000);
     mask: linear-gradient(to right,transparent 45%,#000);
 }
 
@@ -88,6 +97,18 @@ body {
 	}
 }
 
+.site-footer-nav a {
+	margin-left: 0;
+}
+
+.site-footer-nav ul {
+	margin-left: 4rem;
+
+	@media (max-width: 767px) {
+		margin-left: 0rem;
+	}
+}
+
 .post-card {
 	@include material-container--secondary;
     border-radius: 2rem;
@@ -107,7 +128,22 @@ body {
     overflow: hidden;
 }
 
-.post-card-meta-date {
+.post-card-excerpt {
+	margin-bottom: 2rem;
+}
+
+.post-card-meta {
+	margin-top: auto;
+}
+
+.post-card-meta-date, .post-card-meta-length {
 	@include material-button--filled-primary;
-	// @include material-inverted--tertiary;
+	&__icon {
+		font-size: 1.5rem;
+		margin-right: 0rem;
+	}
+}
+
+.post-card-meta>*+:not(script):before {
+	display: none;
 }

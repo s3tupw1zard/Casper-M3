@@ -41,11 +41,39 @@ body {
   transition: background 0.25s ease, color 0.25s ease;
   color: var(--md-sys-color-on-primary-container);
   background-color: var(--md-sys-color-primary-container);
-  border-radius: 2rem;
+  border-radius: 0rem 0rem 2rem 2rem;
   overflow: hidden;
 }
 
+.home-template.has-cover .gh-head {
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.has-cover .gh-head-button {
+  transition: background 0.25s ease, color 0.25s ease;
+  color: var(--md-sys-color-tertiary);
+  background-color: var(--md-sys-color-on-tertiary);
+  transition: background 0.25s ease, color 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0rem 1.5rem;
+  border-radius: 100px;
+  text-decoration: none;
+  line-height: 3rem;
+}
+.has-cover .gh-head-button > .material-symbols-rounded {
+  margin-right: 0.5rem;
+}
+.has-cover .gh-head-button:hover {
+  transition: background 0.25s ease, color 0.25s ease;
+  color: var(--md-sys-color-tertiary-container);
+  background-color: var(--md-sys-color-on-tertiary-container);
+}
+
 .site-header-cover {
+  -webkit-mask: linear-gradient(to right, transparent 45%, #000);
   mask: linear-gradient(to right, transparent 45%, #000);
 }
 
@@ -98,6 +126,10 @@ body {
   font-size: 2.5rem;
 }
 
+.site-footer-nav a {
+  margin-left: 0;
+}
+
 .post-card {
   transition: background 0.25s ease, color 0.25s ease;
   color: var(--md-sys-color-on-secondary-container);
@@ -138,7 +170,15 @@ body {
   overflow: hidden;
 }
 
-.post-card-meta-date {
+.post-card-excerpt {
+  margin-bottom: 2rem;
+}
+
+.post-card-meta {
+  margin-top: auto;
+}
+
+.post-card-meta-date, .post-card-meta-length {
   transition: background 0.25s ease, color 0.25s ease;
   color: var(--md-sys-color-on-primary);
   background-color: var(--md-sys-color-primary);
@@ -152,7 +192,24 @@ body {
   text-decoration: none;
   line-height: 3rem;
 }
-.post-card-meta-date > .material-symbols-rounded {
+.post-card-meta-date > .material-symbols-rounded, .post-card-meta-length > .material-symbols-rounded {
   margin-right: 0.5rem;
+}
+.post-card-meta-date__icon, .post-card-meta-length__icon {
+  font-size: 1.5rem;
+  margin-right: 0rem;
+}
+
+.post-card-meta > * + :not(script):before {
+  display: none;
+}
+
+.site-footer-nav ul {
+  margin-left: 4rem;
+}
+@media (max-width: 767px) {
+  .site-footer-nav ul {
+    margin-left: 0rem;
+  }
 }
 /*# sourceMappingURL=material-you-overrides.css.map */
