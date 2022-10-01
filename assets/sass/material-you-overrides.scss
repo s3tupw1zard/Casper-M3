@@ -1,0 +1,48 @@
+@import "material-you";
+@import "fonts/font-material-symbols";
+
+::-webkit-scrollbar {
+    background: #23005c;
+    background: #{var(--md-sys-color-background)};
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 32px;
+    background-color: #e9ddff;
+    background-color: #{var(--md-sys-color-inverse-surface)};
+}
+::selection {
+    background: #23005c;
+    color: #e9ddff;
+    background: #{var(--md-sys-color-inverse-on-surface-dark)};
+    color: #{var(--md-sys-color-inverse-surface-dark)};
+}
+
+body {
+	font-family: "Poppins", $system-fallback-fonts;
+	margin: 0;
+	min-height: 100vh;
+	background-color: #{var(--md-sys-color-background)};
+}
+
+.material-symbols-rounded {
+	@include material-symbols-rounded;
+	user-select: none;
+}
+
+.light-theme, .dark-theme {
+	@include theme-transition();
+}
+
+.site-header-content {
+	@include material-container--primary;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.site-header-cover {
+    mask: linear-gradient(to right,transparent 45%,#000);
+}
+
+.gh-search {
+	color: #{var(--md-sys-color-on-primary-container)};
+}
