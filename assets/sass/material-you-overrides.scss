@@ -75,10 +75,12 @@ body {
 	border-radius: $container-border-radius $container-border-radius 0 0;
 	display: flex;
 	flex-direction: column;
+	margin: max(18vmin,64px) 0 0;
+	padding-bottom: 4rem;
 
 	&__scroll-header {
-		margin-top: -8.5rem;
-        margin-bottom: 7rem;
+		margin-top: -11rem;
+        margin-bottom: 4rem;
         justify-content: center;
         display: flex;
 	}
@@ -87,8 +89,8 @@ body {
 		@include theme-transition;
 		@include material-colored--primary;
 		@include material-mask--zany-square;
-		width: 7rem;
-		height: 7rem;
+		width: 12rem;
+		height: 12rem;
 		padding: 1rem;
 		display: flex;
 		justify-content: center;
@@ -97,7 +99,40 @@ body {
 	}
 
 	&__scroll-icon {
-		font-size: 2.5rem;
+		font-size: 4rem;
+	}
+
+	&__links {
+		display: flex;
+		grid-gap: 1rem;
+		margin-bottom: 4rem;
+		align-self: center;
+	}
+
+	&__link {
+		@include material-basic--primary;
+
+		padding: 10px;
+		width: 48px;
+		height: 48px;
+		border-radius: 32px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		line-height: 0;
+	}
+}
+
+.site-footer .inner {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	grid-gap: 0;
+    gap: 20px;
+	font-size: 1.5rem;
+
+	& > * {
+		text-align: center;
 	}
 }
 
@@ -106,11 +141,7 @@ body {
 }
 
 .site-footer-nav ul {
-	margin-left: 4rem;
-
-	@media (max-width: 767px) {
-		margin-left: 0rem;
-	}
+	margin-bottom: 0rem;
 }
 
 .post-card {
