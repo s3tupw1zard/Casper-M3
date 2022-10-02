@@ -47,6 +47,7 @@ body {
 	@include material-container--primary;
     border-radius: 0rem 0rem 2rem 2rem;
     overflow: hidden;
+	clip-path: inset(0 round 0rem 0rem 2rem 2rem);
 }
 
 .home-template.has-cover .gh-head {
@@ -60,6 +61,9 @@ body {
 .site-header-cover {
     -webkit-mask: linear-gradient(to right,transparent 45%,#000);
     mask: linear-gradient(to right,transparent 45%,#000);
+	position: fixed;
+	opacity: 40%;
+	z-index: -1;
 }
 
 .gh-search, .gh-burger {
