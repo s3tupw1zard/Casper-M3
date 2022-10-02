@@ -49,6 +49,7 @@ body {
   background-color: var(--md-sys-color-primary-container);
   border-radius: 0rem 0rem 2rem 2rem;
   overflow: hidden;
+  clip-path: inset(0 round 0rem 0rem 2rem 2rem);
 }
 
 .home-template.has-cover .gh-head {
@@ -81,6 +82,9 @@ body {
 .site-header-cover {
   -webkit-mask: linear-gradient(to right, transparent 45%, #000);
   mask: linear-gradient(to right, transparent 45%, #000);
+  position: fixed;
+  opacity: 40%;
+  z-index: -1;
 }
 
 .gh-search, .gh-burger {
@@ -100,10 +104,12 @@ body {
   border-radius: 2rem 2rem 0 0;
   display: flex;
   flex-direction: column;
+  margin: max(18vmin, 64px) 0 0;
+  padding-bottom: 4rem;
 }
 .site-footer__scroll-header {
-  margin-top: -8.5rem;
-  margin-bottom: 7rem;
+  margin-top: -11rem;
+  margin-bottom: 4rem;
   justify-content: center;
   display: flex;
 }
@@ -120,8 +126,8 @@ body {
   mask-repeat: no-repeat;
   mask-size: contain;
   mask-position: center;
-  width: 7rem;
-  height: 7rem;
+  width: 12rem;
+  height: 12rem;
   padding: 1rem;
   display: flex;
   justify-content: center;
@@ -129,7 +135,38 @@ body {
   text-decoration: none;
 }
 .site-footer__scroll-icon {
-  font-size: 2.5rem;
+  font-size: 4rem;
+}
+.site-footer__links {
+  display: flex;
+  grid-gap: 1rem;
+  margin-bottom: 4rem;
+  align-self: center;
+}
+.site-footer__link {
+  transition: background 0.25s ease, color 0.25s ease;
+  color: var(--md-sys-color-primary);
+  background-color: var(--md-sys-color-on-primary);
+  padding: 10px;
+  width: 48px;
+  height: 48px;
+  border-radius: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 0;
+}
+
+.site-footer .inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-gap: 0;
+  gap: 20px;
+  font-size: 1.5rem;
+}
+.site-footer .inner > * {
+  text-align: center;
 }
 
 .site-footer-nav a {
@@ -137,18 +174,13 @@ body {
 }
 
 .site-footer-nav ul {
-  margin-left: 4rem;
-}
-@media (max-width: 767px) {
-  .site-footer-nav ul {
-    margin-left: 0rem;
-  }
+  margin-bottom: 0rem;
 }
 
 .post-card {
   transition: background 0.25s ease, color 0.25s ease;
-  color: var(--md-sys-color-on-secondary-container);
-  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-tertiary-container);
+  background-color: var(--md-sys-color-tertiary-container);
   border-radius: 2rem;
   overflow: hidden;
 }
@@ -159,14 +191,14 @@ body {
 
 .post-card-content-link {
   transition: background 0.25s ease, color 0.25s ease;
-  color: var(--md-sys-color-on-secondary-container);
-  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-tertiary-container);
+  background-color: var(--md-sys-color-tertiary-container);
 }
 
 .post-card-primary-tag {
   transition: background 0.25s ease, color 0.25s ease;
-  color: var(--md-sys-color-tertiary);
-  background-color: var(--md-sys-color-on-tertiary);
+  color: var(--md-sys-color-on-primary);
+  background-color: var(--md-sys-color-primary);
   transition: background 0.25s ease, color 0.25s ease;
   display: flex;
   align-items: center;
@@ -179,11 +211,6 @@ body {
 }
 .post-card-primary-tag > .material-symbols-rounded {
   margin-right: 0.5rem;
-}
-.post-card-primary-tag:hover {
-  transition: background 0.25s ease, color 0.25s ease;
-  color: var(--md-sys-color-tertiary-container);
-  background-color: var(--md-sys-color-on-tertiary-container);
 }
 
 .post-card-image {
@@ -201,8 +228,8 @@ body {
 
 .post-card-meta-date, .post-card-meta-length {
   transition: background 0.25s ease, color 0.25s ease;
-  color: var(--md-sys-color-on-primary);
-  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-tertiary);
+  background-color: var(--md-sys-color-on-tertiary);
   transition: background 0.25s ease, color 0.25s ease;
   display: flex;
   align-items: center;
@@ -215,6 +242,11 @@ body {
 }
 .post-card-meta-date > .material-symbols-rounded, .post-card-meta-length > .material-symbols-rounded {
   margin-right: 0.5rem;
+}
+.post-card-meta-date:hover, .post-card-meta-length:hover {
+  transition: background 0.25s ease, color 0.25s ease;
+  color: var(--md-sys-color-tertiary-container);
+  background-color: var(--md-sys-color-on-tertiary-container);
 }
 .post-card-meta-date__icon, .post-card-meta-length__icon {
   font-size: 1.5rem;
