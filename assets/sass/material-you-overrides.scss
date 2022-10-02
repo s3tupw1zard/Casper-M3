@@ -114,7 +114,7 @@ body {
 }
 
 .post-card {
-	@include material-container--secondary;
+	@include material-container--tertiary;
     border-radius: 2rem;
     overflow: hidden;
 }
@@ -124,11 +124,11 @@ body {
 }
 
 .post-card-content-link {
-	@include material-container--secondary;
+	@include material-container--tertiary;
 }
 
 .post-card-primary-tag {
-	@include material-button--basic-tertiary;
+	@include material-button--filled-primary;
 }
 
 .post-card-image {
@@ -145,7 +145,7 @@ body {
 }
 
 .post-card-meta-date, .post-card-meta-length {
-	@include material-button--filled-primary;
+	@include material-button--basic-tertiary;
 	&__icon {
 		font-size: 1.5rem;
 		margin-right: 0rem;
