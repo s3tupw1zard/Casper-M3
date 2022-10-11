@@ -154,6 +154,14 @@ body {
     overflow: hidden;
 }
 
+.post-card-large, .post-card-large .post-card-content-link {
+	@include material-container--secondary;
+}
+
+.post-card-large .post-card-meta-date, .post-card-large .post-card-meta-length {
+	@include material-button--basic-secondary;
+}
+
 .post-card-content {
 	padding: $container-padding;
 }
