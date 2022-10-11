@@ -100,6 +100,10 @@ body {
 		justify-content: center;
 		align-items: center;
 		text-decoration: none;
+
+		&:hover {
+			@include material-inverted--primary;
+		}
 	}
 
 	&__scroll-icon {
@@ -124,7 +128,21 @@ body {
 		justify-content: center;
 		align-items: center;
 		line-height: 0;
+
+		&:hover {
+			@include material-inverted--primary;
+		}
 	}
+}
+
+.site-footer .copyright a {
+	@include material-inverted--primary;
+	border-radius: calc($container-border-radius / 2);
+	padding: 8px;
+	display: inline-flex;
+	align-items: center;
+	font-weight: bold;
+    letter-spacing: normal;
 }
 
 .site-footer .inner {
