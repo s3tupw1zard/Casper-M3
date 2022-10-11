@@ -137,7 +137,7 @@ body {
 
 .site-footer .copyright a {
 	@include material-inverted--primary;
-	border-radius: calc($container-border-radius / 2);
+	border-radius: 16px;
 	padding: 8px;
 	display: inline-flex;
 	align-items: center;
