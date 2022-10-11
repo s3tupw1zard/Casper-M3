@@ -45,9 +45,9 @@ body {
 
 .site-header-content {
 	@include material-container--primary;
-    border-radius: 0rem 0rem 2rem 2rem;
+    border-radius: 0rem 0rem 32px 32px;
     overflow: hidden;
-	clip-path: inset(0 round 0rem 0rem 2rem 2rem);
+	clip-path: inset(0 round 0rem 0rem 32px 32px);
 }
 
 .home-template.has-cover .gh-head {
@@ -150,7 +150,7 @@ body {
 
 .post-card {
 	@include material-container--tertiary;
-    border-radius: 2rem;
+    border-radius: 32px;
     overflow: hidden;
 }
 
@@ -167,7 +167,7 @@ body {
 }
 
 .post-card-image {
-    border-radius: 2rem;
+    border-radius: 32px;
     overflow: hidden;
 }
 
