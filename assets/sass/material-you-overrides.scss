@@ -112,7 +112,7 @@ body {
 
 	&__links {
 		display: flex;
-		grid-gap: 1rem;
+		grid-gap: 16px;
 		margin-bottom: 4rem;
 		align-self: center;
 	}
@@ -202,6 +202,10 @@ body {
     overflow: hidden;
 }
 
+.post-card-image-link {
+	margin-bottom: 0px;
+}
+
 .post-card-excerpt {
 	margin-bottom: 2rem;
 }
@@ -220,4 +224,21 @@ body {
 
 .post-card-meta>*+:not(script):before {
 	display: none;
+}
+
+.gh-content > blockquote:not([class]), .gh-content > dl, .gh-content > ol, .gh-content > p, .gh-content > ul {
+	@include material-container--secondary;
+	padding: 0% $container-padding;
+	padding-top: max(3.2vmin,24px);
+	margin-top: 0px !important;
+}
+
+.gh-content > p {
+	&:first-of-type {
+		border-radius: $container-border-radius $container-border-radius 0px 0px;
+	}
+
+	&:last-of-type {
+		border-radius: 0px 0px $container-border-radius $container-border-radius\;
+	}
 }
