@@ -29,3 +29,5 @@ changelog.md.bk
 
 assets/built/*.css
 assets/built/*.map
+
+assets/built/
