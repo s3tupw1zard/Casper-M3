@@ -242,3 +242,27 @@ body {
 		border-radius: 0px 0px $container-border-radius $container-border-radius;
 	}
 }
+
+.article-title {
+	color: #{var(--md-sys-color-on-background)};
+}
+
+.article-byline {
+	@include material-colored--primary;
+	border-radius: $container-border-radius;
+	padding: 1.5rem;
+}
+
+.byline-meta-content {
+	display: inline-flex;
+	gap: 1rem;
+}
+
+.byline-meta-date,
+.byline-reading-time {
+	@include material-button--basic-primary;
+}
+
+.author-name a {
+	color: #{var(--md-sys-color-on-primary)};
+}
