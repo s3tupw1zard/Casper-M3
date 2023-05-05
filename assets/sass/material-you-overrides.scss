@@ -278,7 +278,7 @@ body {
     padding: 1rem 2rem;
 }
 
-.gh-canvas .article-image {
+.gh-canvas .article-image, .kg-card {
 	@include material-inverted--secondary;
 	border-radius: $container-border-radius;
 	overflow: hidden;
@@ -290,4 +290,17 @@ body {
 
 figcaption {
 	padding: 1.5rem;
+}
+
+.gh-content :not(.kg-card):not([id])+.kg-card {
+    margin-top: 6vmin;
+    margin-bottom: 6vmin;
+}
+
+.gh-content .kg-card+:not(.kg-card) {
+	border-radius: $container-border-radius $container-border-radius 0 0;
+}
+
+p:has(+.kg-card) {
+	border-radius: 0 0 $container-border-radius $container-border-radius;
 }
