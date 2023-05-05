@@ -49,9 +49,12 @@ into the {body} tag of the default.hbs template --}}
             <div class="article-byline-meta">
                 <h4 class="author-name">{{authors}}</h4>
                 <div class="byline-meta-content">
-                    <time class="byline-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date}}</time>
+                    <time class="byline-meta-date" datetime="{{date format="YYYY-MM-DD"}}"><span class="post-card-meta-date__icon material-symbols-rounded">calendar_today</span>{{date}}</time>
                     {{#if reading_time}}
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> {{reading_time}}</span>
+                        <span class="byline-reading-time">
+							<span class="post-card-meta-length__icon material-symbols-rounded">schedule</span>
+							{{reading_time}}
+						</span>
                     {{/if}}
                 </div>
             </div>
