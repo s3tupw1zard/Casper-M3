@@ -54,8 +54,12 @@ body {
 	color: #{var(--md-sys-color-on-primary-container)};
 }
 
-.has-cover .gh-head-button {
+.has-cover .gh-head-button, .footer-cta-button span {
 	@include material-button--basic-tertiary;
+}
+
+.footer-cta-button span {
+	height: 44px;
 }
 
 .site-header-cover {
@@ -243,7 +247,7 @@ body {
 	}
 }
 
-.article-title {
+.article-title, .footer-cta-title {
 	color: #{var(--md-sys-color-on-background)};
 }
 
@@ -265,4 +269,25 @@ body {
 
 .author-name a {
 	color: #{var(--md-sys-color-on-primary)};
+}
+
+.footer-cta-button {
+	@include material-colored--tertiary;
+	border: none;
+	border-radius: $container-border-radius;
+    padding: 1rem 2rem;
+}
+
+.gh-canvas .article-image {
+	@include material-inverted--secondary;
+	border-radius: $container-border-radius;
+	overflow: hidden;
+
+	figcaption, figcaption > * {
+		color: #{var(--md-sys-color-primary-container)};
+	}
+}
+
+figcaption {
+	padding: 1.5rem;
 }
