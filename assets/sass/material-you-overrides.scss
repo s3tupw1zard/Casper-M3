@@ -304,3 +304,23 @@ figcaption {
 p:has(+.kg-card) {
 	border-radius: 0 0 $container-border-radius $container-border-radius;
 }
+
+.author-avatar, .author-profile-pic-container {
+	padding: 0.65rem;
+}
+
+.author-avatar, .author-profile-image, .author-profile-pic, .author-profile-pic-container {
+	@include material-mask--jagged-circle;
+	width: 110px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	justify-self: center;
+	margin-left: 1.5rem;
+	background-color: #{var(--md-sys-color-secondary-container)};
+	border-radius: initial;
+    overflow: initial;
+    border: initial;
+    height: initial;
+    margin: initial;
+}

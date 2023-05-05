@@ -29,7 +29,9 @@
             <div class="post-card-content-link">
 
                 {{#if profile_image}}
-                    <img class="author-profile-pic" src="{{profile_image}}" alt="{{name}}" />
+				<div class="author-profile-pic-container">
+					<img class="author-profile-pic" src="{{profile_image}}" alt="{{name}}" />
+				</div>
                 {{/if}}
 
                 <header class="post-card-header">
