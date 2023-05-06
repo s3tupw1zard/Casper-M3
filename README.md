@@ -1,10 +1,14 @@
-# Casper
+# Casper M3/Material You
+
+An adjusted Casper theme with Material You styling.
 
 The default theme for [Ghost](http://github.com/tryghost/ghost/). This is the latest development version of Casper! If you're just looking to download the latest release, head over to the [releases](https://github.com/TryGhost/Casper/releases) page.
 
 &nbsp;
 
-![screenshot-desktop](https://user-images.githubusercontent.com/1418797/183329195-8e8f2ee5-a473-4694-a813-a2575491209e.png)
+![M3 landing page](assets/screenshot1.png?raw=true "M3 landing page")
+![M3 posts](assets/screenshot2.png?raw=true "M3 posts")
+![M3 standalone post](assets/screenshot3.png?raw=true "M3 standalone post")
 
 &nbsp;
 
