@@ -301,8 +301,12 @@ figcaption {
 	border-radius: $container-border-radius $container-border-radius 0 0;
 }
 
-p:has(+.kg-card) {
+p:has(+.kg-card), p:has(+[id]), p:has(+hr) {
 	border-radius: 0 0 $container-border-radius $container-border-radius;
+}
+
+.gh-content>[id]+* {
+	margin-top: 0 !important;
 }
 
 .author-avatar, .author-profile-pic-container {
@@ -323,4 +327,10 @@ p:has(+.kg-card) {
     border: initial;
     height: initial;
     margin: initial;
+}
+
+.gh-content>[id] {
+	@include material-colored--secondary;
+	padding: 2rem 24px;
+	border-radius: $container-border-radius $container-border-radius 0 0;
 }
