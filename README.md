@@ -1,5 +1,9 @@
 ![A Meaningful Struggle blog banner](assets/banner.png?raw=true "Material You landing banner")
 
+![M3 landing page](assets/screenshot1.png?raw=true "M3 landing page")
+![M3 posts](assets/screenshot2.png?raw=true "M3 posts")
+![M3 standalone post](assets/screenshot3.png?raw=true "M3 standalone post")
+
 # Casper M3/Material You
 
 An adjusted Casper theme with Material You styling.
@@ -7,10 +11,6 @@ An adjusted Casper theme with Material You styling.
 The default theme for [Ghost](http://github.com/tryghost/ghost/). This is the latest development version of Casper! If you're just looking to download the latest release, head over to the [releases](https://github.com/TryGhost/Casper/releases) page.
 
 &nbsp;
-
-![M3 landing page](assets/screenshot1.png?raw=true "M3 landing page")
-![M3 posts](assets/screenshot2.png?raw=true "M3 posts")
-![M3 standalone post](assets/screenshot3.png?raw=true "M3 standalone post")
 
 &nbsp;
 
