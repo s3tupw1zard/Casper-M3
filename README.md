@@ -1,4 +1,4 @@
-![A Meaningful Struggle blog banner](assets/img/banner.png?raw=true "Material You landing banner")
+![A Meaningful Struggle blog banner](assets/banner.png?raw=true "Material You landing banner")
 
 # Casper M3/Material You
 
