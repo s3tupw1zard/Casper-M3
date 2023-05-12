@@ -1,3 +1,5 @@
+![A Meaningful Struggle blog banner](assets/img/banner.png?raw=true "Material You landing banner")
+
 # Casper M3/Material You
 
 An adjusted Casper theme with Material You styling.
