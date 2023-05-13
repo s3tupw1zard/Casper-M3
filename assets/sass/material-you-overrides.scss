@@ -55,7 +55,8 @@ body {
 }
 
 .has-cover .gh-head-button, .footer-cta-button span {
-	@include material-button--basic-tertiary;
+	@include material-button--filled-secondary;
+	font-weight: normal;
 }
 
 .footer-cta-button span {
@@ -280,7 +281,7 @@ body {
 }
 
 .footer-cta-button {
-	@include material-colored--tertiary;
+	@include material-container--secondary;
 	border: none;
 	border-radius: $container-border-radius;
     padding: 1rem 2rem;
