@@ -186,11 +186,19 @@ body {
 }
 
 .post-card-large .post-card-meta-date, .post-card-large .post-card-meta-length {
-	@include material-colored--secondary;
+	@include material-basic--secondary;
 }
 
 .post-card-content {
 	padding: $container-padding;
+}
+
+.post-card-large > .post-card-content {
+	padding-left: 0;
+
+	&--author {
+		padding: $container-padding;
+	}
 }
 
 .post-card-content-link {
@@ -219,7 +227,7 @@ body {
 }
 
 .post-card-meta-date, .post-card-meta-length {
-	@include material-button--filled-secondary;
+	@include material-button--basic-secondary;
 	&__icon {
 		font-size: 1.5rem;
 		margin-right: 0rem;
@@ -279,12 +287,12 @@ body {
 }
 
 .gh-canvas .article-image, .kg-card {
-	@include material-inverted--secondary;
+	@include material-colored--tertiary;
 	border-radius: $container-border-radius;
 	overflow: hidden;
 
 	figcaption, figcaption > * {
-		color: #{var(--md-sys-color-primary-container)};
+		color: #{var(--md-sys-color-on-tertiary)};
 	}
 }
 
