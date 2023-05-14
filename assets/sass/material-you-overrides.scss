@@ -363,3 +363,28 @@ p:has(+.kg-card), p:has(+[id]), p:has(+hr) {
 	color: #{var(--md-sys-color-on-primary)} !important;
 	background-color: #{var(--md-sys-color-primary)} !important;
 }
+
+.kg-card.kg-header-card.kg-style-light {
+	@include material-colored--tertiary;
+}
+
+.kg-header-card.kg-style-light h2.kg-header-card-header {
+	color: #{var(--md-sys-color-on-tertiary)};
+}
+
+.kg-card.kg-header-card.kg-style-dark {
+	@include material-inverted--tertiary;
+}
+
+.kg-header-card.kg-style-dark a.kg-header-card-button {
+	background: initial;
+	color: initial;
+}
+
+.kg-header-card.kg-style-dark a.kg-header-card-button, .kg-header-card.kg-style-image a.kg-header-card-button, .kg-header-card.kg-style-light a.kg-header-card-button, .kg-header-card.kg-style-image a.kg-header-card-button {
+	@include material-button;
+	color: #{var(--md-sys-color-tertiary)} !important;
+	background-color: #{var(--md-sys-color-on-tertiary)} !important;
+	background: initial;
+    color: initial;
+}
