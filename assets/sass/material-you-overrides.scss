@@ -260,8 +260,12 @@ body {
 	}
 }
 
-.article-title, .footer-cta-title {
+.article-title, .footer-cta-title, .article-excerpt {
 	color: #{var(--md-sys-color-on-background)};
+}
+
+.article-tag a {
+	color: #{var(--md-sys-color-on-primary)};
 }
 
 .article-byline {
