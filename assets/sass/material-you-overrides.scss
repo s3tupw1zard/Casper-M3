@@ -190,6 +190,10 @@ body {
 	@include material-basic--secondary;
 }
 
+.post-card-meta, .post-card-meta>* {
+    flex-wrap: wrap;
+}
+
 .post-card-content {
 	padding: $container-padding;
 }
@@ -233,6 +237,7 @@ body {
 
 .post-card-meta-date, .post-card-meta-length {
 	@include material-button--basic-secondary;
+    min-width: max-content;
 	&__icon {
 		font-size: 1.5rem;
 		margin-right: 0rem;
