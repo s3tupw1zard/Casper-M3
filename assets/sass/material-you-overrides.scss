@@ -366,10 +366,26 @@ p:has(+.kg-card), p:has(+[id]), p:has(+hr) {
     padding: 1rem 0rem;
 }
 
-.gh-announcement-bar {
+.gh-announcement-bar,
+.gh-announcement-bar button {
 	@include theme-transition();
 	color: #{var(--md-sys-color-on-primary)} !important;
 	background-color: #{var(--md-sys-color-primary)} !important;
+}
+
+.gh-head-open.has-cover #gh-head, .gh-head-open.has-cover #gh-head .gh-head-actions {
+	@include material-container--primary;
+}
+
+.gh-head-menu .nav a,
+.gh-head-link,
+.gh-head-actions .gh-search,
+#gh-head .gh-head-brand .gh-search {
+	color: #{var(--md-sys-color-on-primary-container)};
+}
+
+.has-cover .gh-burger:after, .has-cover .gh-burger:before {
+	background-color: #{var(--md-sys-color-on-primary-container)};
 }
 
 .kg-card.kg-header-card.kg-style-light {
