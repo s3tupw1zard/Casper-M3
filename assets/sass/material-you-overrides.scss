@@ -197,6 +197,10 @@ body {
 .post-card-large > .post-card-content {
 	padding-left: 0;
 
+	@media (max-width: 991px) {
+		padding-left: 24px;
+	}
+
 	&--author {
 		padding: $container-padding;
 	}
