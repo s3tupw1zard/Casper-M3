@@ -379,6 +379,12 @@ p:has(+.kg-card), p:has(+[id]), p:has(+hr) {
 	background-color: #{var(--md-sys-color-primary)} !important;
 }
 
+.gh-head-open.has-cover #gh-head {
+	@media (max-width: 767px) {
+		overflow-y: hidden;
+	}
+}
+
 .gh-head-open.has-cover #gh-head, .gh-head-open.has-cover #gh-head .gh-head-actions {
 	@include material-container--primary;
 }
