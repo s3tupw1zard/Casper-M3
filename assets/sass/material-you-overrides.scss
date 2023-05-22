@@ -238,6 +238,7 @@ body {
 .post-card-meta-date, .post-card-meta-length {
 	@include material-button--basic-secondary;
     min-width: max-content;
+    flex-flow: row;
 	&__icon {
 		font-size: 1.5rem;
 		margin-right: 0rem;
@@ -380,6 +381,10 @@ p:has(+.kg-card), p:has(+[id]), p:has(+hr) {
 
 .gh-head-open.has-cover #gh-head, .gh-head-open.has-cover #gh-head .gh-head-actions {
 	@include material-container--primary;
+}
+
+.gh-head-menu .nav {
+    flex-flow: row;
 }
 
 .gh-head-menu .nav a,
