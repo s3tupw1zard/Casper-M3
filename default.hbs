@@ -8,6 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    {{!-- Preload scripts --}}
+    <link rel="preload" as="style" href="{{asset "built/screen.css"}}" />
+    <link rel="preload" as="script" href="{{asset "built/casper.js"}}" />
 
 	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""/>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&amp;display=swap" rel="preload" as="style" onload="this.rel = 'stylesheet'" crossorigin=""/>
