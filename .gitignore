@@ -26,8 +26,3 @@ dist/
 config.json
 changelog.md
 changelog.md.bk
-
-assets/built/*.css
-assets/built/*.map
-
-assets/built/
