@@ -26,6 +26,9 @@ const CHANGELOG_PATH = path.join(process.cwd(), '.', 'changelog.md');
 // sass
 const sass = require('gulp-sass')(require('sass'));
 
+// webpack
+const webpackStream = require('webpack-stream');
+
 function serve(done) {
     livereload.listen();
     done();
@@ -101,12 +104,22 @@ function zipper(done) {
     ], handleError(done));
 }
 
+function webpack(done) {
+    pump([
+        src('assets/built'),
+        webpackStream(require('./webpack.config.js')),
+        dest('assets/built'),
+        livereload()
+    ], handleError(done));
+}
+
 const scssWatcher = () => watch('assets/sass/**', scss);
 const cssWatcher = () => watch('assets/css/**', css);
 const jsWatcher = () => watch('assets/js/**', js);
+const webpackWatcher = () => watch('src/**', webpack);
 const hbsWatcher = () => watch(['*.hbs', 'partials/**/*.hbs'], hbs);
-const watcher = parallel(cssWatcher, hbsWatcher, scssWatcher, jsWatcher);
-const build = series(css, js, scss);
+const watcher = parallel(cssWatcher, hbsWatcher, scssWatcher, jsWatcher, webpackWatcher);
+const build = series(css, js, scss, webpack);
 
 exports.build = build;
 exports.zip = series(build, zipper);
