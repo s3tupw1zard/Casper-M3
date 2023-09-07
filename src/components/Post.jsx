@@ -1,15 +1,21 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
+import React, { Component } from 'react';
 
-const container = document.getElementById('react-post');
-const root = createRoot(container);
+class Post extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {};
+		console.warn("Post");
+	}
 
-root.render(
-	<div>
-		Post
-	</div>
-);
+	// Lifecycle methods
 
-export const Post = () => (
-	null
-);
+	render() {
+		return (
+			<div>
+				Post
+			</div>
+		);
+	}
+}
+
+export default Post;
