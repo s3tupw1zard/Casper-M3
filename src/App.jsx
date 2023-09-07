@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container } from '@components/Container';
+import { Post } from '@components/Post';
 
 export const App = () => (
-	<main className="app">
-		App
-		<Container />
-	</main>
+	<div className="app">
+		<Post/>
+	</div>
 );
