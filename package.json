@@ -192,5 +192,9 @@
         "extends": [
             "@tryghost:theme"
         ]
+    },
+    "dependencies": {
+        "@material/material-color-utilities": "^0.2.7",
+        "colorthief": "^2.4.0"
     }
 }
