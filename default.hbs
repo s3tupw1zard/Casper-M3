@@ -84,6 +84,7 @@
     </header>
 
     <div class="site-content">
+		<div id="react-root"></div>
         {{!-- All other templates get inserted here, index.hbs, post.hbs, etc --}}
         {{{body}}}
     </div>
@@ -138,6 +139,7 @@
     crossorigin="anonymous">
 </script>
 <script src="{{asset "built/casper.js"}}"></script>
+<script src="{{asset "built/main.bundle.js"}}"></script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger
