@@ -340,6 +340,10 @@ p:has(+.kg-card), p:has(+[id]), p:has(+hr) {
 	border-radius: 0 0 $container-border-radius $container-border-radius;
 }
 
+.gh-content h3 + .kg-card {
+	border-radius: 0 0 $container-border-radius $container-border-radius;
+}
+
 .gh-content>[id]+* {
 	margin-top: 0 !important;
 }
