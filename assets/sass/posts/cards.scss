@@ -1,0 +1,51 @@
+.gh-content :not(.kg-card):not([id])+.kg-card {
+    margin-top: 6vmin;
+    margin-bottom: 6vmin;
+}
+
+.gh-content .kg-card+:not(.kg-card) {
+	border-radius: $container-border-radius $container-border-radius 0 0;
+}
+
+p:has(+.kg-card), p:has(+[id]), p:has(+hr) {
+	border-radius: 0 0 $container-border-radius $container-border-radius;
+}
+
+.gh-content h3 + .kg-card {
+	border-radius: 0 0 $container-border-radius $container-border-radius;
+}
+
+.kg-card.kg-header-card.kg-style-light {
+	@include material-colored--tertiary;
+}
+
+.kg-header-card.kg-style-light h2.kg-header-card-header {
+	color: #{var(--md-sys-color-on-tertiary)};
+}
+
+.kg-card.kg-header-card.kg-style-dark {
+	@include material-inverted--tertiary;
+}
+
+.kg-header-card.kg-style-dark a.kg-header-card-button {
+	background: initial;
+	color: initial;
+}
+
+.kg-header-card h2.kg-header-card-header strong,
+.kg-header-card h3.kg-header-card-subheader strong,
+.kg-header-card h3.kg-header-card-subheading strong,
+.kg-signup-card h3.kg-signup-card-subheading strong {
+	color: #{var(--md-sys-color-tertiary-container)};
+}
+
+.kg-header-card.kg-style-dark a.kg-header-card-button,
+.kg-header-card.kg-style-image a.kg-header-card-button,
+.kg-header-card.kg-style-light a.kg-header-card-button,
+.kg-header-card.kg-style-image a.kg-header-card-button {
+	@include material-button;
+	color: #{var(--md-sys-color-tertiary)} !important;
+	background-color: #{var(--md-sys-color-on-tertiary)} !important;
+	background: initial;
+	color: initial;
+}

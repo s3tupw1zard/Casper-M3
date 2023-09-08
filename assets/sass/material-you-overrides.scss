@@ -1,5 +1,6 @@
 @import "material-you";
 @import "fonts/font-material-symbols";
+@import "./posts/cards.scss";
 
 @media (prefers-reduced-motion: no-preference) {
     :root {
@@ -8,19 +9,22 @@
 }
 
 ::-webkit-scrollbar {
+	@include theme-transition();
     background: #23005c;
     background: #{var(--md-sys-color-background)};
 }
 ::-webkit-scrollbar-thumb {
+	@include theme-transition();
     border-radius: 32px;
-    background-color: #e9ddff;
-    background-color: #{var(--md-sys-color-inverse-surface)};
+    background: #e9ddff;
+    background: #{var(--md-sys-color-inverse-surface)};
 }
 ::selection {
+	@include theme-transition();
     background: #23005c;
     color: #e9ddff;
-    background: #{var(--md-sys-color-inverse-on-surface-dark)};
-    color: #{var(--md-sys-color-inverse-surface-dark)};
+    background: #{var(--md-sys-color-inverse-surface)};
+    color: #{var(--md-sys-color-inverse-on-surface)};
 }
 
 body {
@@ -28,11 +32,6 @@ body {
 	margin: 0;
 	min-height: 100vh;
 	background-color: #{var(--md-sys-color-background)};
-}
-
-.material-symbols-rounded {
-	@include material-symbols-rounded;
-	user-select: none;
 }
 
 .light-theme, .dark-theme {
@@ -222,8 +221,14 @@ body {
 	@include material-container--primary;
 }
 
-.post-card-primary-tag {
+.post-card-primary-tag,
+.post-card-featured {
 	@include material-button--filled-primary;
+}
+
+.post-card-featured svg {
+	display: none;
+	visibility: hidden;
 }
 
 .post-card-image {
@@ -271,6 +276,10 @@ body {
 
 	&:last-of-type {
 		border-radius: 0px 0px $container-border-radius $container-border-radius;
+	}
+
+	&:only-of-type {
+		border-radius: $container-border-radius;
 	}
 }
 
@@ -321,19 +330,6 @@ body {
 
 figcaption {
 	padding: 1.5rem;
-}
-
-.gh-content :not(.kg-card):not([id])+.kg-card {
-    margin-top: 6vmin;
-    margin-bottom: 6vmin;
-}
-
-.gh-content .kg-card+:not(.kg-card) {
-	border-radius: $container-border-radius $container-border-radius 0 0;
-}
-
-p:has(+.kg-card), p:has(+[id]), p:has(+hr) {
-	border-radius: 0 0 $container-border-radius $container-border-radius;
 }
 
 .gh-content>[id]+* {
@@ -410,31 +406,6 @@ p:has(+.kg-card), p:has(+[id]), p:has(+hr) {
 
 .has-cover .gh-burger:after, .has-cover .gh-burger:before {
 	background-color: #{var(--md-sys-color-on-primary-container)};
-}
-
-.kg-card.kg-header-card.kg-style-light {
-	@include material-colored--tertiary;
-}
-
-.kg-header-card.kg-style-light h2.kg-header-card-header {
-	color: #{var(--md-sys-color-on-tertiary)};
-}
-
-.kg-card.kg-header-card.kg-style-dark {
-	@include material-inverted--tertiary;
-}
-
-.kg-header-card.kg-style-dark a.kg-header-card-button {
-	background: initial;
-	color: initial;
-}
-
-.kg-header-card.kg-style-dark a.kg-header-card-button, .kg-header-card.kg-style-image a.kg-header-card-button, .kg-header-card.kg-style-light a.kg-header-card-button, .kg-header-card.kg-style-image a.kg-header-card-button {
-	@include material-button;
-	color: #{var(--md-sys-color-tertiary)} !important;
-	background-color: #{var(--md-sys-color-on-tertiary)} !important;
-	background: initial;
-    color: initial;
 }
 
 .gh-content>blockquote:not([class]):before {
