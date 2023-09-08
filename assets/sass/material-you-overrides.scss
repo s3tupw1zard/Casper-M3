@@ -8,19 +8,22 @@
 }
 
 ::-webkit-scrollbar {
+	@include theme-transition();
     background: #23005c;
     background: #{var(--md-sys-color-background)};
 }
 ::-webkit-scrollbar-thumb {
+	@include theme-transition();
     border-radius: 32px;
-    background-color: #e9ddff;
-    background-color: #{var(--md-sys-color-inverse-surface)};
+    background: #e9ddff;
+    background: #{var(--md-sys-color-inverse-surface)};
 }
 ::selection {
+	@include theme-transition();
     background: #23005c;
     color: #e9ddff;
-    background: #{var(--md-sys-color-inverse-on-surface-dark)};
-    color: #{var(--md-sys-color-inverse-surface-dark)};
+    background: #{var(--md-sys-color-inverse-surface)};
+    color: #{var(--md-sys-color-inverse-on-surface)};
 }
 
 body {
@@ -28,11 +31,6 @@ body {
 	margin: 0;
 	min-height: 100vh;
 	background-color: #{var(--md-sys-color-background)};
-}
-
-.material-symbols-rounded {
-	@include material-symbols-rounded;
-	user-select: none;
 }
 
 .light-theme, .dark-theme {
