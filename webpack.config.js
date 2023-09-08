@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-	mode: 'development', // Set the mode to 'development'
+	mode: 'production',
 	entry: {
 		main: "./src/index.jsx",
 	},
