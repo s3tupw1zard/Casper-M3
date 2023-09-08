@@ -267,7 +267,8 @@ body {
   background-color: var(--md-sys-color-primary-container);
 }
 
-.post-card-primary-tag {
+.post-card-primary-tag,
+.post-card-featured {
   transition: background 0.25s ease, color 0.25s ease;
   color: var(--md-sys-color-on-primary);
   background-color: var(--md-sys-color-primary);
@@ -281,13 +282,20 @@ body {
   text-decoration: none;
   line-height: 3rem;
 }
-.post-card-primary-tag > .material-symbols-rounded {
+.post-card-primary-tag > .material-symbols-rounded,
+.post-card-featured > .material-symbols-rounded {
   margin-right: 0.5rem;
 }
-.post-card-primary-tag:hover {
+.post-card-primary-tag:hover,
+.post-card-featured:hover {
   transition: background 0.25s ease, color 0.25s ease;
   color: var(--md-sys-color-primary-container);
   background-color: var(--md-sys-color-on-primary-container);
+}
+
+.post-card-featured svg {
+  display: none;
+  visibility: hidden;
 }
 
 .post-card-image {
@@ -576,6 +584,11 @@ p:has(+ .kg-card), p:has(+ [id]), p:has(+ hr) {
 .kg-header-card.kg-style-dark a.kg-header-card-button {
   background: initial;
   color: initial;
+}
+
+.kg-header-card h2.kg-header-card-header strong,
+.kg-header-card h3.kg-header-card-subheader strong, .kg-header-card h3.kg-header-card-subheading strong, .kg-signup-card h3.kg-signup-card-subheading strong {
+  color: var(--md-sys-color-tertiary-container);
 }
 
 .kg-header-card.kg-style-dark a.kg-header-card-button, .kg-header-card.kg-style-image a.kg-header-card-button, .kg-header-card.kg-style-light a.kg-header-card-button, .kg-header-card.kg-style-image a.kg-header-card-button {
