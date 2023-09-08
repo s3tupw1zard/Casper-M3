@@ -7,16 +7,18 @@ class Post extends Component {
 		this.state = {};
 	}
 
-	componentDidMount() {
+	async componentDidMount() {
 		const accentUtil = new AccentUtil();
 		const articleImage = document.querySelector('.article-image');
 
 		if (articleImage) {
-			const result = accentUtil.setM3ColorAndTarget(
+			const result = await accentUtil.setM3ColorAndTarget(
 				null,
 				document.body,
 				"article-image"
 			);
+			accentUtil.setThemeRawColorData(result);
+			accentUtil.setMetaTagColor();
 		}
 	}
 
