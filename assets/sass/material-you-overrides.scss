@@ -222,8 +222,14 @@ body {
 	@include material-container--primary;
 }
 
-.post-card-primary-tag {
+.post-card-primary-tag,
+.post-card-featured {
 	@include material-button--filled-primary;
+}
+
+.post-card-featured svg {
+	display: none;
+	visibility: hidden;
 }
 
 .post-card-image {
