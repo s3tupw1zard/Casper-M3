@@ -10,56 +10,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/App.jsx":
-/*!*********************!*\
-  !*** ./src/App.jsx ***!
-  \*********************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   App: function() { return /* binding */ App; }\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _components_Container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @components/Container */ \"./src/components/Container.jsx\");\n/* harmony import */ var _components_Post__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @components/Post */ \"./src/components/Post.jsx\");\n\n\n\nconst App = () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n  className: \"app\"\n}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Post__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null));\n\n//# sourceURL=webpack://casper-m3/./src/App.jsx?");
-
-/***/ }),
-
-/***/ "./src/components/Container.jsx":
-/*!**************************************!*\
-  !*** ./src/components/Container.jsx ***!
-  \**************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   Container: function() { return /* binding */ Container; }\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\nconst Container = () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n  className: \"test-container\"\n}, \"Test\");\n\n//# sourceURL=webpack://casper-m3/./src/components/Container.jsx?");
-
-/***/ }),
-
-/***/ "./src/components/Post.jsx":
-/*!*********************************!*\
-  !*** ./src/components/Post.jsx ***!
-  \*********************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _utils_Accent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @utils/Accent */ \"./src/utils/Accent.jsx\");\n\n\nclass Post extends react__WEBPACK_IMPORTED_MODULE_0__.Component {\n  constructor(props) {\n    super(props);\n    this.state = {};\n  }\n  async componentDidMount() {\n    const accentUtil = new _utils_Accent__WEBPACK_IMPORTED_MODULE_1__.AccentUtil();\n    const articleImage = document.querySelector('.article-image');\n    if (articleImage) {\n      const result = await accentUtil.setM3ColorAndTarget(null, document.body, \"article-image\");\n      accentUtil.setThemeRawColorData(result);\n      accentUtil.setMetaTagColor();\n    }\n  }\n\n  // Lifecycle methods\n\n  render() {\n    return null;\n  }\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (Post);\n\n//# sourceURL=webpack://casper-m3/./src/components/Post.jsx?");
-
-/***/ }),
-
-/***/ "./src/index.jsx":
-/*!***********************!*\
-  !*** ./src/index.jsx ***!
-  \***********************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ \"./node_modules/react-dom/client.js\");\n/* harmony import */ var _App_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.jsx */ \"./src/App.jsx\");\n\n\n\nconst container = document.getElementById('react-root');\nconst root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(container);\nroot.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_App_jsx__WEBPACK_IMPORTED_MODULE_2__.App, null));\n\n//# sourceURL=webpack://casper-m3/./src/index.jsx?");
-
-/***/ }),
-
-/***/ "./src/utils/Accent.jsx":
-/*!******************************!*\
-  !*** ./src/utils/Accent.jsx ***!
-  \******************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   AccentUtil: function() { return /* binding */ AccentUtil; }\n/* harmony export */ });\n/* harmony import */ var _material_material_color_utilities__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @material/material-color-utilities */ \"./node_modules/@material/material-color-utilities/index.js\");\n/* harmony import */ var colorthief__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! colorthief */ \"./node_modules/colorthief/dist/color-thief.mjs\");\n\n\nclass AccentUtil {\n  themeMode = \"light\";\n  themeRawColorData = undefined;\n\n  /**\n   * Converts ARGB color value to RGB\n   * \n   * Reference: https://stackoverflow.com/questions/12579598/how-can-i-convert-argb-to-hex-in-javascript\n   * @param color ARGB color\n   * @returns Hex value\n   */\n  argbToRgb(color) {\n    return '#' + ('000000' + (color & 0xFFFFFF).toString(16)).slice(-6);\n  }\n  rgbToHex(rgb) {\n    const [r, g, b] = rgb.map(color => Math.round(color).toString(16).padStart(2, '0'));\n    return `#${r}${g}${b}`;\n  }\n  setThemeRawColorData(theme) {\n    this.themeRawColorData = theme;\n  }\n  getColorFromImage(imgElement) {\n    if (imgElement.complete) {\n      // If the image is already loaded, directly get the color.\n      const colorThief = new colorthief__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\n      const color = colorThief.getColor(imgElement, 100);\n      return Promise.resolve(color);\n    } else {\n      // If the image is not loaded yet, wait for the 'onload' event to get the color.\n      return new Promise((resolve, reject) => {\n        imgElement.onload = () => {\n          const colorThief = new colorthief__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\n          const color = colorThief.getColor(imgElement, 100);\n          resolve(color);\n        };\n        imgElement.onerror = () => {\n          // If there is an error loading the image or getting the color, reject the promise.\n          reject(new Error('Failed to load the image or get the color.'));\n        };\n      });\n    }\n  }\n  setMetaTagColor() {\n    const metaThemeColor = document.querySelector('meta[name=\"theme-color\"]');\n    if (metaThemeColor) {\n      metaThemeColor.setAttribute('content', this.argbToRgb(this.themeRawColorData?.schemes[this.themeMode].primaryContainer));\n    }\n  }\n  async setThemeFromM3(element) {\n    const theme = await this.setM3ColorAndTarget(null, document.body, \"article-image\");\n    if (theme) {\n      this.themeRawColorData = theme;\n    }\n    this.setMetaTagColor();\n  }\n  async setM3ColorAndTarget(parentOfImg, target, elementClass) {\n    let theme = null;\n    const parentElement = document.getElementById(parentOfImg);\n    const colorThief = new colorthief__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\n    const systemDark = window.matchMedia(\"(prefers-color-scheme: dark)\").matches;\n    this.themeMode = systemDark ? 'dark' : 'light';\n    if (parentElement) {\n      const imgElement = parentElement.querySelector(\"img\");\n      let color = \"\";\n      if (imgElement) {\n        color = this.rgbToHex(await this.getColorFromImage(imgElement));\n        theme = (0,_material_material_color_utilities__WEBPACK_IMPORTED_MODULE_0__.themeFromSourceColor)((0,_material_material_color_utilities__WEBPACK_IMPORTED_MODULE_0__.argbFromHex)(color));\n        // theme = await themeFromImage(imgElement as HTMLImageElement);\n      } else {\n        console.error(\"No <img> element found within the parent element.\");\n        theme = (0,_material_material_color_utilities__WEBPACK_IMPORTED_MODULE_0__.themeFromSourceColor)((0,_material_material_color_utilities__WEBPACK_IMPORTED_MODULE_0__.argbFromHex)(\"#0099ff\"));\n      }\n    } else if (elementClass) {\n      const imgElement = document.querySelector(\".\" + elementClass).querySelector(\"img\");\n      let color = \"\";\n      if (imgElement) {\n        imgElement.crossOrigin = \"anonymous\";\n        color = this.rgbToHex(await this.getColorFromImage(imgElement));\n        theme = (0,_material_material_color_utilities__WEBPACK_IMPORTED_MODULE_0__.themeFromSourceColor)((0,_material_material_color_utilities__WEBPACK_IMPORTED_MODULE_0__.argbFromHex)(color));\n      } else {\n        console.error(\"No <img> element found within the parent element.\");\n        theme = (0,_material_material_color_utilities__WEBPACK_IMPORTED_MODULE_0__.themeFromSourceColor)((0,_material_material_color_utilities__WEBPACK_IMPORTED_MODULE_0__.argbFromHex)(\"#0099ff\"));\n      }\n    } else {\n      console.error(\"Parent element with ID '\" + parentOfImg + \"' not found.\");\n      theme = (0,_material_material_color_utilities__WEBPACK_IMPORTED_MODULE_0__.themeFromSourceColor)((0,_material_material_color_utilities__WEBPACK_IMPORTED_MODULE_0__.argbFromHex)(\"#0099ff\"));\n    }\n    if (theme) {\n      (0,_material_material_color_utilities__WEBPACK_IMPORTED_MODULE_0__.applyTheme)(theme, {\n        target: target,\n        dark: systemDark\n      });\n    }\n    return theme;\n  }\n}\n\n//# sourceURL=webpack://casper-m3/./src/utils/Accent.jsx?");
-
-/***/ }),
-
 /***/ "./node_modules/react-dom/cjs/react-dom.development.js":
 /*!*************************************************************!*\
   !*** ./node_modules/react-dom/cjs/react-dom.development.js ***!
@@ -127,6 +77,46 @@ eval("/**\n * @license React\n * scheduler.development.js\n *\n * Copyright (c) 
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs/scheduler.development.js */ \"./node_modules/scheduler/cjs/scheduler.development.js\");\n}\n\n\n//# sourceURL=webpack://casper-m3/./node_modules/scheduler/index.js?");
+
+/***/ }),
+
+/***/ "./src/App.tsx":
+/*!*********************!*\
+  !*** ./src/App.tsx ***!
+  \*********************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.App = void 0;\nconst react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\nconst Post_1 = __importDefault(__webpack_require__(/*! @components/Post */ \"./src/components/Post.tsx\"));\nconst App = () => (react_1.default.createElement(\"div\", { className: \"app\" },\n    react_1.default.createElement(Post_1.default, null)));\nexports.App = App;\n\n\n//# sourceURL=webpack://casper-m3/./src/App.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/Post.tsx":
+/*!*********************************!*\
+  !*** ./src/components/Post.tsx ***!
+  \*********************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\nvar __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {\n    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }\n    return new (P || (P = Promise))(function (resolve, reject) {\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\n        function rejected(value) { try { step(generator[\"throw\"](value)); } catch (e) { reject(e); } }\n        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\n    });\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst react_1 = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst Accent_1 = __webpack_require__(/*! @utils/Accent */ \"./src/utils/Accent.tsx\");\nclass Post extends react_1.Component {\n    constructor(props) {\n        super(props);\n        this.state = {};\n    }\n    componentDidMount() {\n        return __awaiter(this, void 0, void 0, function* () {\n            const accentUtil = new Accent_1.AccentUtil();\n            const articleImage = document.querySelector('.article-image');\n            if (articleImage) {\n                const result = yield accentUtil.setM3ColorAndTarget(null, document.body, \"article-image\");\n                accentUtil.setThemeRawColorData(result);\n                accentUtil.setMetaTagColor();\n            }\n        });\n    }\n    // Lifecycle methods\n    render() {\n        return (null);\n    }\n}\nexports[\"default\"] = Post;\n\n\n//# sourceURL=webpack://casper-m3/./src/components/Post.tsx?");
+
+/***/ }),
+
+/***/ "./src/index.tsx":
+/*!***********************!*\
+  !*** ./src/index.tsx ***!
+  \***********************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\nconst client_1 = __webpack_require__(/*! react-dom/client */ \"./node_modules/react-dom/client.js\");\nconst App_1 = __webpack_require__(/*! ./App */ \"./src/App.tsx\");\nconst container = document.getElementById('react-root');\nconst root = (0, client_1.createRoot)(container);\nroot.render(react_1.default.createElement(App_1.App, null));\n\n\n//# sourceURL=webpack://casper-m3/./src/index.tsx?");
+
+/***/ }),
+
+/***/ "./src/utils/Accent.tsx":
+/*!******************************!*\
+  !*** ./src/utils/Accent.tsx ***!
+  \******************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\nvar __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {\n    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }\n    return new (P || (P = Promise))(function (resolve, reject) {\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\n        function rejected(value) { try { step(generator[\"throw\"](value)); } catch (e) { reject(e); } }\n        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\n    });\n};\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.AccentUtil = void 0;\nconst material_color_utilities_1 = __webpack_require__(/*! @material/material-color-utilities */ \"./node_modules/@material/material-color-utilities/index.js\");\nconst colorthief_1 = __importDefault(__webpack_require__(/*! colorthief */ \"./node_modules/colorthief/dist/color-thief.mjs\"));\nclass AccentUtil {\n    constructor() {\n        this.themeMode = \"light\";\n    }\n    /**\n     * Converts ARGB color value to RGB\n     *\n     * Reference: https://stackoverflow.com/questions/12579598/how-can-i-convert-argb-to-hex-in-javascript\n     * @param color ARGB color\n     * @returns Hex value\n     */\n    argbToRgb(color) {\n        return '#' + ('000000' + (color & 0xFFFFFF).toString(16)).slice(-6);\n    }\n    rgbToHex(rgb) {\n        const [r, g, b] = rgb.map((color) => Math.round(color).toString(16).padStart(2, '0'));\n        return `#${r}${g}${b}`;\n    }\n    setThemeRawColorData(theme) {\n        this.themeRawColorData = theme;\n    }\n    getColorFromImage(imgElement) {\n        if (imgElement.complete) {\n            // If the image is already loaded, directly get the color.\n            const colorThief = new colorthief_1.default();\n            const color = colorThief.getColor(imgElement, 100);\n            return Promise.resolve(color);\n        }\n        else {\n            // If the image is not loaded yet, wait for the 'onload' event to get the color.\n            return new Promise((resolve, reject) => {\n                imgElement.onload = () => {\n                    const colorThief = new colorthief_1.default();\n                    const color = colorThief.getColor(imgElement, 100);\n                    resolve(color);\n                };\n                imgElement.onerror = () => {\n                    // If there is an error loading the image or getting the color, reject the promise.\n                    reject(new Error('Failed to load the image or get the color.'));\n                };\n            });\n        }\n    }\n    setMetaTagColor() {\n        var _a;\n        const metaThemeColor = document.querySelector('meta[name=\"theme-color\"]');\n        if (metaThemeColor) {\n            metaThemeColor.setAttribute('content', this.argbToRgb((_a = this.themeRawColorData) === null || _a === void 0 ? void 0 : _a.schemes[this.themeMode].primaryContainer));\n        }\n    }\n    setThemeFromM3(element) {\n        return __awaiter(this, void 0, void 0, function* () {\n            const theme = yield this.setM3ColorAndTarget(null, document.body, \"article-image\");\n            if (theme) {\n                this.themeRawColorData = theme;\n            }\n            this.setMetaTagColor();\n        });\n    }\n    setM3ColorAndTarget(parentOfImg, target, elementClass) {\n        return __awaiter(this, void 0, void 0, function* () {\n            let theme = null;\n            const parentElement = document.getElementById(parentOfImg);\n            const colorThief = new colorthief_1.default();\n            const systemDark = window.matchMedia(\"(prefers-color-scheme: dark)\").matches;\n            this.themeMode = systemDark ? 'dark' : 'light';\n            if (parentElement) {\n                const imgElement = parentElement.querySelector(\"img\");\n                let color = \"\";\n                if (imgElement) {\n                    color = this.rgbToHex(yield this.getColorFromImage(imgElement));\n                    theme = (0, material_color_utilities_1.themeFromSourceColor)((0, material_color_utilities_1.argbFromHex)(color));\n                    // theme = await themeFromImage(imgElement as HTMLImageElement);\n                }\n                else {\n                    console.error(\"No <img> element found within the parent element.\");\n                    theme = (0, material_color_utilities_1.themeFromSourceColor)((0, material_color_utilities_1.argbFromHex)(\"#0099ff\"));\n                }\n            }\n            else if (elementClass) {\n                const imgElement = document.querySelector(\".\" + elementClass).querySelector(\"img\");\n                let color = \"\";\n                if (imgElement) {\n                    imgElement.crossOrigin = \"anonymous\";\n                    color = this.rgbToHex(yield this.getColorFromImage(imgElement));\n                    theme = (0, material_color_utilities_1.themeFromSourceColor)((0, material_color_utilities_1.argbFromHex)(color));\n                }\n                else {\n                    console.error(\"No <img> element found within the parent element.\");\n                    theme = (0, material_color_utilities_1.themeFromSourceColor)((0, material_color_utilities_1.argbFromHex)(\"#0099ff\"));\n                }\n            }\n            else {\n                console.error(\"Parent element with ID '\" + parentOfImg + \"' not found.\");\n                theme = (0, material_color_utilities_1.themeFromSourceColor)((0, material_color_utilities_1.argbFromHex)(\"#0099ff\"));\n            }\n            if (theme) {\n                (0, material_color_utilities_1.applyTheme)(theme, {\n                    target: typeof target === \"string\" ? document.getElementById(target) : target,\n                    dark: this.themeMode === \"light\" ? false : true\n                });\n            }\n            return theme;\n        });\n    }\n}\nexports.AccentUtil = AccentUtil;\n\n\n//# sourceURL=webpack://casper-m3/./src/utils/Accent.tsx?");
 
 /***/ }),
 
@@ -530,7 +520,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
@@ -540,18 +530,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	!function() {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = function(module) {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				function() { return module['default']; } :
-/******/ 				function() { return module; };
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	}();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	!function() {
 /******/ 		// define getter functions for harmony exports
@@ -593,8 +571,8 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.jsx");
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.tsx");
 /******/ 	
 /******/ })()
 ;
