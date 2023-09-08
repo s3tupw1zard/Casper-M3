@@ -2,8 +2,8 @@ import { Theme, argbFromHex, themeFromImage, themeFromSourceColor, applyTheme } 
 import ColorThief, { RGBColor } from 'colorthief';
 
 export class AccentUtil {
-	themeMode = "light";
-	themeRawColorData = undefined;
+	themeMode: "light" | "dark" = "light";
+	themeRawColorData: Theme | undefined;
 
 	/**
 	 * Converts ARGB color value to RGB
@@ -12,31 +12,31 @@ export class AccentUtil {
 	 * @param color ARGB color
 	 * @returns Hex value
 	 */
-	argbToRgb(color) {
+	argbToRgb(color: number) {
 		return '#' + ('000000' + (color & 0xFFFFFF).toString(16)).slice(-6);
 	}
 
-	rgbToHex(rgb) {
+	rgbToHex(rgb: RGBColor): string {
 		const [r, g, b] = rgb.map((color) => Math.round(color).toString(16).padStart(2, '0'));
 		return `#${r}${g}${b}`;
 	}
 
-	setThemeRawColorData(theme) {
+	setThemeRawColorData(theme: Theme) {
 		this.themeRawColorData = theme;
 	}
 
-	getColorFromImage(imgElement) {
+	getColorFromImage(imgElement: HTMLImageElement): Promise<RGBColor> {
 		if (imgElement.complete) {
 			// If the image is already loaded, directly get the color.
 			const colorThief = new ColorThief();
-			const color = colorThief.getColor(imgElement, 100);
+			const color: RGBColor = colorThief.getColor(imgElement, 100);
 			return Promise.resolve(color);
 		} else {
 			// If the image is not loaded yet, wait for the 'onload' event to get the color.
 			return new Promise((resolve, reject) => {
 				imgElement.onload = () => {
 					const colorThief = new ColorThief();
-					const color = colorThief.getColor(imgElement, 100);
+					const color: RGBColor = colorThief.getColor(imgElement, 100);
 					resolve(color);
 				};
 
@@ -58,7 +58,7 @@ export class AccentUtil {
 		}
 	}
 
-	async setThemeFromM3(element) {
+	async setThemeFromM3(element?: HTMLImageElement) {
 		const theme = await this.setM3ColorAndTarget(
 			null,
 			document.body,
@@ -71,9 +71,9 @@ export class AccentUtil {
 	}
 
 	async setM3ColorAndTarget(
-		parentOfImg,
-		target,
-		elementClass
+		parentOfImg: string,
+		target: string | HTMLElement,
+		elementClass: string
 	) {
 		let theme = null;
 		const parentElement = document.getElementById(parentOfImg);
@@ -114,8 +114,8 @@ export class AccentUtil {
 			applyTheme(
 				theme,
 				{
-					target: target,
-					dark: systemDark
+					target: typeof target === "string" ? document.getElementById(target) as HTMLElement : target,
+					dark: this.themeMode === "light" ? false : true
 				}
 			);
 

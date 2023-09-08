@@ -3,34 +3,39 @@ const path = require('path');
 module.exports = {
 	mode: 'development', // Set the mode to 'development'
 	entry: {
-		main: "./src/index.jsx",
+		main: "./src/index.tsx",
 	},
 	resolve: {
 		alias: {
 			'@components': path.resolve(__dirname, 'src/components'),
-			'@utils': path.resolve(__dirname, 'src/utils')
+			'@utils': path.resolve(__dirname, 'src/utils'),
 		},
-		extensions: ['.js', '.jsx'],
+		extensions: ['.js', '.jsx', '.ts', '.tsx'], // Add .ts and .tsx extensions
 	},
 	module: {
 		rules: [
 			{
-				test: /\.jsx?$/,
+				test: /\.(js|jsx)$/, // Keep the existing rule for JavaScript/JSX files
 				exclude: /(node_modules|bower_components)/,
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ['@babel/env', '@babel/preset-react']
-					}
-				}
+						presets: ['@babel/env', '@babel/preset-react'],
+					},
+				},
+			},
+			{
+				test: /\.(ts|tsx)$/, // Add a new rule for TypeScript/TSX files
+				exclude: /(node_modules|bower_components)/,
+				use: 'ts-loader',
 			},
 			{
 				test: /\.css$/,
-				use: ["style-loader", "css-loader"],
+				use: ['style-loader', 'css-loader'],
 			},
 			{
 				test: /\.scss$/,
-				use: ["style-loader", "css-loader", "sass-loader"],
+				use: ['style-loader', 'css-loader', 'sass-loader'],
 			},
 		],
 	},
