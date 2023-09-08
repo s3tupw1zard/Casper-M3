@@ -272,6 +272,10 @@ body {
 	&:last-of-type {
 		border-radius: 0px 0px $container-border-radius $container-border-radius;
 	}
+
+	&:only-of-type {
+		border-radius: $container-border-radius;
+	}
 }
 
 .article-title, .footer-cta-title, .article-excerpt {

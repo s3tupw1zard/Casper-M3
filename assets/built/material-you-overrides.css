@@ -355,6 +355,9 @@ body {
 .gh-content > p:last-of-type {
   border-radius: 0px 0px 32px 32px;
 }
+.gh-content > p:only-of-type {
+  border-radius: 32px;
+}
 
 .article-title, .footer-cta-title, .article-excerpt {
   color: var(--md-sys-color-on-background);
