@@ -2,6 +2,7 @@ import { Theme, argbFromHex, themeFromImage, themeFromSourceColor, applyTheme } 
 import ColorThief, { RGBColor } from 'colorthief';
 
 export class AccentUtil {
+	themeMode = "light";
 	themeRawColorData = undefined;
 
 	/**
@@ -18,6 +19,10 @@ export class AccentUtil {
 	rgbToHex(rgb) {
 		const [r, g, b] = rgb.map((color) => Math.round(color).toString(16).padStart(2, '0'));
 		return `#${r}${g}${b}`;
+	}
+
+	setThemeRawColorData(theme) {
+		this.themeRawColorData = theme;
 	}
 
 	getColorFromImage(imgElement) {
@@ -43,6 +48,16 @@ export class AccentUtil {
 		}
 	}
 
+	setMetaTagColor() {
+		const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+
+		if (metaThemeColor) {
+			metaThemeColor.setAttribute('content', this.argbToRgb(
+				this.themeRawColorData?.schemes[this.themeMode].primaryContainer
+			));
+		}
+	}
+
 	async setThemeFromM3(element) {
 		const theme = await this.setM3ColorAndTarget(
 			null,
@@ -64,6 +79,7 @@ export class AccentUtil {
 		const parentElement = document.getElementById(parentOfImg);
 		const colorThief = new ColorThief();
 		const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+		this.themeMode = systemDark ? 'dark' : 'light';
 
 		if (parentElement) {
 			const imgElement = parentElement.querySelector("img");
