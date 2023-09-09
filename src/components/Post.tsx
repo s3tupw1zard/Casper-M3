@@ -7,7 +7,7 @@ class Post extends Component {
 		this.state = {};
 	}
 
-	async componentDidMount() {
+	async componentDidMount(): Promise<void> {
 		const accentUtil = new AccentUtil();
 		const articleImage = document.querySelector('.article-image');
 
@@ -22,9 +22,7 @@ class Post extends Component {
 		}
 	}
 
-	// Lifecycle methods
-
-	render() {
+	render(): React.ReactNode {
 		return (
 			null
 		);
