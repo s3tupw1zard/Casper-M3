@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Container } from '@components/Container';
 import Post from '@components/Post';
 
-export const App = () => (
-	<div className="app">
-		<Post/>
-	</div>
-);
+class App extends Component {
+	constructor(props) {
+		super(props);
+	}
+
+	componentDidMount(): void {
+		
+	}
+
+	render(): React.ReactNode {
+		return (
+			<div className="app">
+				<Post/>
+			</div>
+		);
+	}
+}
+
+export default App;
