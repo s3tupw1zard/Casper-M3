@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { AccentUtil } from '@utils/Accent';
 
-class Post extends Component {
+class Home extends Component {
 	constructor(props: {} | Readonly<{}>) {
 		super(props);
 		this.state = {};
@@ -9,11 +9,11 @@ class Post extends Component {
 
 	async componentDidMount(): Promise<void> {
 		const accentUtil = new AccentUtil();
-		const articleImage = document.querySelector('.article-image');
+		const headerImage = document.querySelector('.site-header-content');
 
-		if (articleImage) {
+		if (headerImage) {
 			await accentUtil.setThemeFromM3(
-				articleImage
+				headerImage
 			);
 		}
 	}
@@ -25,4 +25,4 @@ class Post extends Component {
 	}
 }
 
-export default Post;
+export default Home;

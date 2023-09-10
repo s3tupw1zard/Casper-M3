@@ -3,6 +3,7 @@ import '@sass/components/App.scss';
 
 import Post from '@components/Post';
 import ThemeSwitcher from '@components/ThemeSwitcher';
+import Home from '@components/Home';
 
 class App extends Component {
 	constructor(props) {
@@ -16,7 +17,7 @@ class App extends Component {
 	render(): React.ReactNode {
 		return (
 			<div className="app">
-				<ThemeSwitcher />
+				<Home/>
 				<Post/>
 			</div>
 		);
