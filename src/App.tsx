@@ -1,24 +1,62 @@
 import React, { Component } from 'react';
 import '@sass/components/App.scss';
 
+import Author from '@components/Author';
 import Post from '@components/Post';
-import ThemeSwitcher from '@components/ThemeSwitcher';
 import Home from '@components/Home';
 
-class App extends Component {
-	constructor(props) {
+import ThemeSwitcher from '@components/ThemeSwitcher';
+
+interface AppState {
+	onPage: string | null;
+}
+
+class App extends Component<{}, AppState> {
+	pageTypes: string[];
+
+	constructor(props: {}) {
 		super(props);
+
+		this.state = {
+			onPage: null
+		}
+
+		this.pageTypes = [
+			"home",
+			"post",
+			"author"
+		];
 	}
 
 	componentDidMount(): void {
-		
+		this.pageTypes.map((type) => {
+			if (document.getElementById("react-" + type)) {
+				this.setState({ onPage: type }, () => {
+					// console.warn(this.state.onPage);
+				});
+			}
+		});
+	}
+
+	renderDynamicComponent(): React.JSX.Element | null {
+		switch (this.state.onPage) {
+			case 'home':
+				return <Home />;
+			case 'post':
+				return <Post />;
+			case 'author':
+				return <Author />
+			default:
+				return null;
+		}
 	}
 
 	render(): React.ReactNode {
 		return (
 			<div className="app">
-				<Home/>
-				<Post/>
+				<Home />
+				<Post />
+				{this.renderDynamicComponent()}
 			</div>
 		);
 	}
