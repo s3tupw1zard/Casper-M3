@@ -51,31 +51,32 @@ export class AccentUtil {
 	setMetaTagColor() {
 		const metaThemeColor = document.querySelector('meta[name="theme-color"]');
 
-		if (metaThemeColor) {
+		if (metaThemeColor && this.themeRawColorData?.schemes[this.themeMode].primaryContainer) {
 			metaThemeColor.setAttribute('content', this.argbToRgb(
 				this.themeRawColorData?.schemes[this.themeMode].primaryContainer
 			));
 		}
 	}
 
-	async setThemeFromM3(element?: HTMLImageElement) {
+	async setThemeFromM3(parentElement: Element | HTMLElement) {
 		const theme = await this.setM3ColorAndTarget(
 			null,
 			document.body,
-			"article-image"
+			parentElement
 		);
 		if (theme) {
 			this.themeRawColorData = theme;
+			this.setThemeRawColorData(theme);
+			this.setMetaTagColor();
 		}
-		this.setMetaTagColor();
 	}
 
 	async setM3ColorAndTarget(
-		parentOfImg: string,
+		parentOfImg: string | null,
 		target: string | HTMLElement,
-		elementClass: string
+		elementClass: Element | HTMLElement | null
 	) {
-		let theme = null;
+		let theme: Theme | null = null;
 		const parentElement = document.getElementById(parentOfImg);
 		const colorThief = new ColorThief();
 		const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -93,8 +94,8 @@ export class AccentUtil {
 				console.error("No <img> element found within the parent element.");
 				theme = themeFromSourceColor(argbFromHex("#0099ff"));
 			}
-		} else if (elementClass) {
-			const imgElement = document.querySelector("." + elementClass).querySelector("img");
+		} else if (elementClass && elementClass !== null) {
+			const imgElement = elementClass.querySelector("img");
 			let color = "";
 
 			if (imgElement) {
