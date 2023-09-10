@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '@sass/components/App.scss';
 
+import Author from '@components/Author';
 import Post from '@components/Post';
 import Home from '@components/Home';
 
@@ -37,12 +38,14 @@ class App extends Component<{}, AppState> {
 		});
 	}
 
-	renderDynamicComponent() {
+	renderDynamicComponent(): React.JSX.Element | null {
 		switch (this.state.onPage) {
 			case 'home':
 				return <Home />;
 			case 'post':
 				return <Post />;
+			case 'author':
+				return <Author />
 			default:
 				return null;
 		}
