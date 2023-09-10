@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { AccentUtil } from '@utils/Accent';
 
 class Post extends Component {
-	constructor(props) {
+	constructor(props: {} | Readonly<{}>) {
 		super(props);
 		this.state = {};
 	}
