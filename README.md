@@ -6,7 +6,7 @@
 
 # Casper M3/Material You
 
-An adjusted Casper theme with Material You styling.
+A modified Casper theme with Material You styling. Integrated with React components and TypeScript.
 
 The default theme for [Ghost](http://github.com/tryghost/ghost/). This is the latest development version of Casper! If you're just looking to download the latest release, head over to the [releases](https://github.com/TryGhost/Casper/releases) page.
 
@@ -65,6 +65,15 @@ yarn zip
 Casper uses inline SVG icons, included via Handlebars partials. You can find all icons inside `/partials/icons`. To use an icon just include the name of the relevant file, eg. To include the SVG icon in `/partials/icons/rss.hbs` - use `{{> "icons/rss"}}`.
 
 You can add your own SVG icons in the same manner.
+
+
+# React Components
+
+Components made with React can be found under the `/src` folder. Any styling should be placed at the `/assets/sass/components` folder, and imported like this:
+
+```js
+import '@sass/components/ThemeSwitcher.scss';
+```
 
 
 # Copyright & License

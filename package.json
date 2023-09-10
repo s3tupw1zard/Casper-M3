@@ -1,7 +1,7 @@
 {
     "name": "casper-m3",
-    "description": "A clean, minimal default theme for the Ghost publishing platform",
-    "demo": "https://demo.ghost.io",
+    "description": "A modified Casper theme with Material You styling. Integrated with React components and TypeScript.",
+    "demo": "https://blog.dartegnian.com",
     "version": "5.7.0",
     "engines": {
         "ghost": ">=5.0.0"
@@ -36,7 +36,8 @@
     "keywords": [
         "ghost",
         "theme",
-        "ghost-theme"
+        "ghost-theme",
+		"material-you"
     ],
     "repository": {
         "type": "git",
