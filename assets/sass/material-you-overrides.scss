@@ -226,9 +226,15 @@ body {
 	@include material-button--filled-primary;
 }
 
-.post-card-featured svg {
-	display: none;
-	visibility: hidden;
+.post-card-featured {
+	svg {
+		display: none;
+		visibility: hidden;
+	}
+
+	.material-symbols-rounded {
+		margin-right: 0rem;
+	}
 }
 
 .post-card-image {
@@ -279,6 +285,10 @@ body {
 	}
 
 	&:only-of-type {
+		border-radius: $container-border-radius;
+	}
+
+	&:first-of-type:has(+ h1, + h2, + h3, + h4, + h5, + h6) {
 		border-radius: $container-border-radius;
 	}
 }
