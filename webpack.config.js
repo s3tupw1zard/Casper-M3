@@ -8,9 +8,11 @@ module.exports = {
 	resolve: {
 		alias: {
 			'@components': path.resolve(__dirname, 'src/components'),
+			'@sass': path.resolve(__dirname, 'assets/sass'),
 			'@utils': path.resolve(__dirname, 'src/utils'),
 		},
 		extensions: ['.js', '.jsx', '.ts', '.tsx'], // Add .ts and .tsx extensions
+		modules: ['node_modules', path.resolve(__dirname, 'assets/sass')],
 	},
 	module: {
 		rules: [
