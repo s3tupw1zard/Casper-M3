@@ -54,8 +54,6 @@ class App extends Component<{}, AppState> {
 	render(): React.ReactNode {
 		return (
 			<div className="app">
-				<Home />
-				<Post />
 				{this.renderDynamicComponent()}
 			</div>
 		);
