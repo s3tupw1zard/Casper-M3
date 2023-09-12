@@ -143,14 +143,21 @@ body {
 }
 
 .post-card-large > .post-card-content {
-	padding-left: 0;
-
-	@media (max-width: 991px) {
-		padding-left: 24px;
+	@media (min-width: 1000px) {
+		padding-left: 0;
 	}
 
 	&--author {
-		padding: $container-padding;
+		justify-content: center;
+		align-items: center;
+	}
+
+	@media (max-width: 991px) {
+		padding-left: 24px;
+
+		&--author {
+			align-items: start;
+		}
 	}
 }
 
