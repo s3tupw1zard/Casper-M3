@@ -1,7 +1,7 @@
 @import "global";
-@import "material-you--primary-styles";
-@import "material-you--secondary-styles";
-@import "material-you--tertiary-styles";
+@import "material-you/primary";
+@import "material-you/secondary";
+@import "material-you/tertiary";
 
 @mixin material-outline {
     border: #{var(--md-sys-color-outline)} solid 3px;

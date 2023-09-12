@@ -1,0 +1,17 @@
+.gh-content > p {
+	&:first-of-type {
+		border-radius: $container-border-radius $container-border-radius 0px 0px;
+	}
+
+	&:last-of-type {
+		border-radius: 0px 0px $container-border-radius $container-border-radius;
+	}
+
+	&:only-of-type {
+		border-radius: $container-border-radius;
+	}
+
+	&:first-of-type:has(+ h1, + h2, + h3, + h4, + h5, + h6) {
+		border-radius: $container-border-radius;
+	}
+}
