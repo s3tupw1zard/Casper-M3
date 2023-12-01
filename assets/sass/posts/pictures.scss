@@ -1,0 +1,8 @@
+.gh-content {
+	& > h1, h2, h3, h4, h5, h6 {
+		+ figure {
+			border-radius: 0 0 $container-border-radius $container-border-radius;
+			margin-bottom: 2em;
+		}
+	  }
+}
