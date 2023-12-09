@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies and run npm preship
         run: |
-          npm ci
+          npm install
           npm run preship
 
       - name: Deploy Ghost Theme
