@@ -1,9 +1,12 @@
-name: Deploy Theme to blog.dartegnian.com
+name: Deploy Casper M3 to blog.dartegnian.com
+
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
       - main
+
 jobs:
   deploy:
     runs-on: ubuntu-22.04
