@@ -1,5 +1,5 @@
 import { Theme, argbFromHex, themeFromImage, themeFromSourceColor, applyTheme } from "@material/material-color-utilities";
-import ColorThief, { RGBColor } from 'colorthief';
+// import ColorThief, { RGBColor } from 'colorthief';
 
 export class AccentUtil {
 	themeMode: "light" | "dark" = "light";
@@ -16,13 +16,14 @@ export class AccentUtil {
 		return '#' + ('000000' + (color & 0xFFFFFF).toString(16)).slice(-6);
 	}
 
+	setThemeRawColorData(theme: Theme) {
+		this.themeRawColorData = theme;
+	}
+
+	/*
 	rgbToHex(rgb: RGBColor): string {
 		const [r, g, b] = rgb.map((color) => Math.round(color).toString(16).padStart(2, '0'));
 		return `#${r}${g}${b}`;
-	}
-
-	setThemeRawColorData(theme: Theme) {
-		this.themeRawColorData = theme;
 	}
 
 	getColorFromImage(imgElement: HTMLImageElement): Promise<RGBColor> {
@@ -47,6 +48,7 @@ export class AccentUtil {
 			});
 		}
 	}
+	*/
 
 	setMetaTagColor() {
 		const metaThemeColor = document.querySelector('meta[name="theme-color"]');
@@ -78,7 +80,7 @@ export class AccentUtil {
 	) {
 		let theme: Theme | null = null;
 		const parentElement = document.getElementById(parentOfImg);
-		const colorThief = new ColorThief();
+		// const colorThief = new ColorThief();
 		const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 		this.themeMode = systemDark ? 'dark' : 'light';
 
@@ -87,9 +89,9 @@ export class AccentUtil {
 			let color = "";
 
 			if (imgElement) {
-				color = this.rgbToHex(await this.getColorFromImage(imgElement));
-				theme = themeFromSourceColor(argbFromHex(color));
-				// theme = await themeFromImage(imgElement as HTMLImageElement);
+				// color = this.rgbToHex(await this.getColorFromImage(imgElement));
+				// theme = themeFromSourceColor(argbFromHex(color));
+				theme = await themeFromImage(imgElement as HTMLImageElement);
 			} else {
 				console.error("No <img> element found within the parent element.");
 				theme = themeFromSourceColor(argbFromHex("#b0b2bd"));
@@ -100,8 +102,9 @@ export class AccentUtil {
 
 			if (imgElement) {
 				imgElement.crossOrigin = "anonymous";
-				color = this.rgbToHex(await this.getColorFromImage(imgElement));
-				theme = themeFromSourceColor(argbFromHex(color));
+				// color = this.rgbToHex(await this.getColorFromImage(imgElement));
+				// theme = themeFromSourceColor(argbFromHex(color));
+				theme = await themeFromImage(imgElement as HTMLImageElement);
 			} else {
 				console.error("No <img> element found within the parent element.");
 				theme = themeFromSourceColor(argbFromHex("#b0b2bd"));
