@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     {{!-- Preload scripts --}}
+    <link rel="preload" as="style" href="{{asset "built/material-you--primary.css"}}" />
     <link rel="preload" as="style" href="{{asset "built/screen.css"}}" />
     <link rel="preload" as="script" href="{{asset "built/casper.js"}}" />
 
@@ -22,7 +23,6 @@
     {{!-- Theme assets - use the {asset} helper to reference styles & scripts,
     this will take care of caching and cache-busting automatically --}}
     <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset "built/material-you--primary.css"}}" />
     <link rel="stylesheet" type="text/css" href="{{asset "built/material-you-overrides.css"}}" />
 
 	<meta name="msapplication-TileColor" content="#CDE5FF">
