@@ -50,6 +50,19 @@ export class AccentUtil {
 	}
 	*/
 
+	public setThemeMode(mode: "light" | "dark") {
+		this.themeMode = mode;
+		const articleImage = document.querySelector('.article-image');
+		console.warn("AAAAAAAA", mode)
+
+		if (articleImage) {
+			console.warn("XXXX", mode)
+			this.setThemeFromM3(
+				articleImage
+			);
+		}
+	}
+
 	setMetaTagColor() {
 		const metaThemeColor = document.querySelector('meta[name="theme-color"]');
 
@@ -80,9 +93,8 @@ export class AccentUtil {
 	) {
 		let theme: Theme | null = null;
 		const parentElement = document.getElementById(parentOfImg);
-		// const colorThief = new ColorThief();
-		const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-		this.themeMode = systemDark ? 'dark' : 'light';
+		// const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+		// this.themeMode = systemDark ? 'dark' : 'light';
 
 		if (parentElement) {
 			const imgElement = parentElement.querySelector("img");
