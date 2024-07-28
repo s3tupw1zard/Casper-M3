@@ -20,8 +20,8 @@ jobs:
 
       - name: Install dependencies and run npm preship
         run: |
-          npm install
-          npm run preship
+          yarn install
+          yarn preship
 
       - name: Deploy Ghost Theme
         uses: TryGhost/action-deploy-theme@v1
