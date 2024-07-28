@@ -32,7 +32,6 @@ class ThemeSwitcher extends Component<ThemeSwitcherProps, ThemeSwitcherState> {
 	async readSetThemeFromIdb() {
 		const prefersDarkSchemeFromIdb = await this.state.idb.getData("Material You", "preferredColorScheme")
 		// this.setState({ prefersDarkSchemeFromIdb:  });
-		console.warn(prefersDarkSchemeFromIdb);
 
 		if (prefersDarkSchemeFromIdb) {
 			this.setThemeMode(prefersDarkSchemeFromIdb);
@@ -55,7 +54,6 @@ class ThemeSwitcher extends Component<ThemeSwitcherProps, ThemeSwitcherState> {
 	};
 
 	setThemeMode(mode: "light" | "dark") {
-		console.warn("THEMEEEE", mode)
 		switch (mode) {
 			case "light":
 				document.body.classList.toggle("dark-theme", false);
