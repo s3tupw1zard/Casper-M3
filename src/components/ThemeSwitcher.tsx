@@ -26,7 +26,7 @@ class ThemeSwitcher extends Component<ThemeSwitcherProps, ThemeSwitcherState> {
 		this.state.idb.connectToIDB();
 		this.setState({ isDarkMode: window.matchMedia("(prefers-color-scheme: dark)").matches });
 
-		this.readSetThemeFromIdb()
+		this.readSetThemeFromIdb();
 	}
 
 	async readSetThemeFromIdb() {

@@ -53,10 +53,8 @@ export class AccentUtil {
 	public setThemeMode(mode: "light" | "dark") {
 		this.themeMode = mode;
 		const articleImage = document.querySelector('.article-image');
-		console.warn("AAAAAAAA", mode)
 
 		if (articleImage) {
-			console.warn("XXXX", mode)
 			this.setThemeFromM3(
 				articleImage
 			);

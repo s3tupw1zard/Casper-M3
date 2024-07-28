@@ -8,14 +8,14 @@ class Author extends Component {
 	}
 
 	async componentDidMount(): Promise<void> {
-		const accentUtil = new AccentUtil();
-		const headerImage = document.querySelector('.post-card-image-link');
+		// const accentUtil = new AccentUtil();
+		// const headerImage = document.querySelector('.post-card-image-link');
 
-		if (headerImage) {
-			await accentUtil.setThemeFromM3(
-				headerImage
-			);
-		}
+		// if (headerImage) {
+		// 	await accentUtil.setThemeFromM3(
+		// 		headerImage
+		// 	);
+		// }
 	}
 
 	render(): React.ReactNode {
