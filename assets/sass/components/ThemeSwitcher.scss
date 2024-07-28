@@ -2,8 +2,8 @@
 
 .theme-switcher {
 	position: fixed;
-	top: 2rem;
-	right: 2rem;
+	top: 32px;
+	right: 32px;
 	z-index: 999;
 
 	@include material-button--filled-secondary;
