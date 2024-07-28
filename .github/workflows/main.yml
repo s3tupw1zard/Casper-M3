@@ -13,12 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Node.js and NPM
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: Install dependencies and run npm preship
+      - name: Install dependencies and run yarn preship
         run: |
           yarn install
           yarn preship
