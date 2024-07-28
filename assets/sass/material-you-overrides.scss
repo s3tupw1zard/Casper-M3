@@ -40,6 +40,10 @@ body {
 	background-color: #{var(--md-sys-color-background)};
 }
 
+ul {
+    list-style-position: inside;
+}
+
 .light-theme, .dark-theme {
 	@include theme-transition();
 }
