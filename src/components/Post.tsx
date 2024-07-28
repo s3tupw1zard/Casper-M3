@@ -8,14 +8,14 @@ class Post extends Component {
 	}
 
 	async componentDidMount(): Promise<void> {
-		const accentUtil = new AccentUtil();
-		const articleImage = document.querySelector('.article-image');
+		// const accentUtil = new AccentUtil();
+		// const articleImage = document.querySelector('.article-image');
 
-		if (articleImage) {
-			await accentUtil.setThemeFromM3(
-				articleImage
-			);
-		}
+		// if (articleImage) {
+		// 	await accentUtil.setThemeFromM3(
+		// 		articleImage
+		// 	);
+		// }
 	}
 
 	render(): React.ReactNode {

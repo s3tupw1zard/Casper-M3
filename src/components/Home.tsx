@@ -8,14 +8,14 @@ class Home extends Component {
 	}
 
 	async componentDidMount(): Promise<void> {
-		const accentUtil = new AccentUtil();
-		const headerImage = document.querySelector('.site-header-content');
+		// const accentUtil = new AccentUtil();
+		// const headerImage = document.querySelector('.site-header-content');
 
-		if (headerImage) {
-			await accentUtil.setThemeFromM3(
-				headerImage
-			);
-		}
+		// if (headerImage) {
+		// 	await accentUtil.setThemeFromM3(
+		// 		headerImage
+		// 	);
+		// }
 	}
 
 	render(): React.ReactNode {
