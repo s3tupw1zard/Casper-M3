@@ -55,6 +55,7 @@ class App extends Component<{}, AppState> {
 		return (
 			<div className="app">
 				{this.renderDynamicComponent()}
+				<ThemeSwitcher></ThemeSwitcher>
 			</div>
 		);
 	}
