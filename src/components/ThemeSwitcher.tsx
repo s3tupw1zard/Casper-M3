@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '@sass/components/ThemeSwitcher.scss';
+// import '@sass/components/ThemeSwitcher.scss';
 
 import { Idb } from '@utils/Idb';
 import { AccentUtil } from '@utils/Accent';
@@ -11,6 +11,7 @@ interface ThemeSwitcherState {
 	isDarkMode: boolean;
 	prefersDarkSchemeFromIdb: "dark" | "light";
 	idb: Idb;
+	top: string | null;
 }
 
 class ThemeSwitcher extends Component<ThemeSwitcherProps, ThemeSwitcherState> {
@@ -20,7 +21,8 @@ class ThemeSwitcher extends Component<ThemeSwitcherProps, ThemeSwitcherState> {
 			themeMode: 'light',
 			isDarkMode: false,
 			prefersDarkSchemeFromIdb: 'light',
-			idb: new Idb()
+			idb: new Idb(),
+			top: null
 		};
 
 		this.state.idb.connectToIDB();
@@ -28,6 +30,20 @@ class ThemeSwitcher extends Component<ThemeSwitcherProps, ThemeSwitcherState> {
 
 		this.readSetThemeFromIdb();
 	}
+
+	componentDidMount() {
+		window.addEventListener('scroll', this.handleScroll);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('scroll', this.handleScroll);
+	}
+
+	handleScroll = () => {
+		const scrollTop = window.scrollY;
+		const newTop = window.innerWidth <= 767 ? (scrollTop > 64 ? '32px' : undefined) : (scrollTop > 88 ? '32px' : undefined);
+		this.setState({ top: newTop });
+	};
 
 	async readSetThemeFromIdb() {
 		const prefersDarkSchemeFromIdb = await this.state.idb.getData("Material You", "preferredColorScheme")
@@ -87,8 +103,13 @@ class ThemeSwitcher extends Component<ThemeSwitcherProps, ThemeSwitcherState> {
 	}
 
 	render() {
+		const { top } = this.state;
 		return (
-			<button onClick={this.toggleThemeMode} className="theme-switcher">
+			<button
+				onClick={this.toggleThemeMode}
+				className="theme-switcher" 
+				style={ top ? { top } : undefined }
+			>
 				<span className="material-symbols-rounded theme-switcher__toggle-icon">
 					{this.state.themeMode === 'light' ? 'dark_mode' : 'light_mode'}
 				</span>
