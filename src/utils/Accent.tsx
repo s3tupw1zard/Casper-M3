@@ -53,10 +53,11 @@ export class AccentUtil {
 	public setThemeMode(mode: "light" | "dark") {
 		this.themeMode = mode;
 		const articleImage = document.querySelector('.article-image');
+		const headerImage = document.querySelector('.post-card-image-link');
 
-		if (articleImage) {
+		if (articleImage || headerImage) {
 			this.setThemeFromM3(
-				articleImage
+				articleImage ?? headerImage
 			);
 		} else {
 			const metaThemeColor = document.querySelector('meta[name="theme-color"]');
