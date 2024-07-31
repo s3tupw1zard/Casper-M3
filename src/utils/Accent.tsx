@@ -58,6 +58,14 @@ export class AccentUtil {
 			this.setThemeFromM3(
 				articleImage
 			);
+		} else {
+			const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+
+			if (metaThemeColor && mode === "light") {
+				metaThemeColor.setAttribute('content', "#cee5ff");
+			} else if (metaThemeColor && mode === "dark") {
+				metaThemeColor.setAttribute('content', "#004b74");
+			}
 		}
 	}
 
