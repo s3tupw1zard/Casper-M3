@@ -254,12 +254,12 @@ ul {
 }
 
 .gh-canvas .article-image, .kg-card {
-	@include material-colored--tertiary;
+	@include material-container--tertiary;
 	border-radius: $container-border-radius;
 	overflow: hidden;
 
 	figcaption, figcaption > * {
-		color: #{var(--md-sys-color-on-tertiary)};
+		color: #{var(--md-sys-color-on-tertiary-container)};
 	}
 }
 
@@ -292,7 +292,7 @@ figcaption {
 }
 
 .gh-content>[id] {
-	@include material-colored--secondary;
+	@include material-inverted--secondary;
 	padding: 2rem 24px;
 	border-radius: $container-border-radius $container-border-radius 0 0;
 }
