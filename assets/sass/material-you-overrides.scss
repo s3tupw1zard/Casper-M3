@@ -66,7 +66,7 @@ ul {
 }
 
 .has-cover .gh-head-button, .footer-cta-button span {
-	@include material-button--filled-secondary;
+	@include material-button--filled-tertiary;
 	font-weight: normal;
 }
 
@@ -181,7 +181,7 @@ ul {
 
 .post-card-primary-tag,
 .post-card-featured {
-	@include material-button--filled-primary;
+	@include material-button--filled-tertiary;
 }
 
 .post-card-featured {
