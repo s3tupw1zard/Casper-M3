@@ -112,6 +112,7 @@ export class AccentUtil {
 			const ctx = canvas.getContext('2d');
 
 			if (ctx) {
+				imgElement.crossOrigin = "anonymous";
 				ctx.drawImage(imgElement, 0, 0);
 				canvas.toBlob((blob) => {
 					if (blob) {
