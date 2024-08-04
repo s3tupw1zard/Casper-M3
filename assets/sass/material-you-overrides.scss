@@ -141,7 +141,7 @@ ul {
 }
 
 .post-card-large .post-card-meta-date, .post-card-large .post-card-meta-length {
-	@include material-basic--secondary;
+	@include material-button--basic-secondary;
 }
 
 .post-card-meta, .post-card-meta>* {
@@ -189,6 +189,10 @@ ul {
     margin-bottom: 0rem;
 }
 
+.featured.post-card-large .post-card-content-link {
+	padding-left: 0px;
+}
+
 .post-card.dynamic >* .post-card-content-link  {
 	@include material-container--primary;
 }
@@ -227,7 +231,7 @@ ul {
 }
 
 .post-card-meta-date, .post-card-meta-length {
-	@include material-button--basic-secondary;
+	@include material-button--basic-tertiary;
     min-width: max-content;
     flex-flow: row;
 	&__icon {
@@ -260,7 +264,7 @@ ul {
 }
 
 .footer-cta-button {
-	@include material-container--secondary;
+	@include material-container--primary;
 	border: none;
 	border-radius: $container-border-radius;
     padding: 1rem;
