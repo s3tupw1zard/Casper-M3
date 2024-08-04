@@ -192,6 +192,7 @@ export class AccentUtil {
 			let color = "";
 	
 			if (imgElement) {
+				imgElement.crossOrigin = "anonymous";
 				// console.timeEnd('imgElementCheck');
 	
 				// Wait for the image to fully load
