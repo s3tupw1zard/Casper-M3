@@ -66,7 +66,7 @@ ul {
 }
 
 .has-cover .gh-head-button, .footer-cta-button span {
-	@include material-button--filled-tertiary;
+	@include material-button--filled-primary;
 	font-weight: normal;
 }
 
@@ -171,8 +171,18 @@ ul {
 	}
 }
 
+@media (min-width: 1001px) {
+	.post-card-large .post-card-content-link {
+		padding-left: 24px;
+	}
+}
+
 .post-card-content-link {
 	@include material-container--tertiary;
+}
+
+.post-card-large .post-card-content-link .post-card-excerpt {
+    margin-bottom: 0rem;
 }
 
 .post-card.dynamic >* .post-card-content-link  {
@@ -238,7 +248,7 @@ ul {
 }
 
 .article-tag a {
-	color: #{var(--md-sys-color-on-primary)};
+	color: #{var(--md-sys-color-on-tertiary)};
 }
 
 .author-name a {
