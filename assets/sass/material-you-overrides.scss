@@ -160,6 +160,10 @@ ul {
 	&--author {
 		justify-content: center;
 		align-items: center;
+
+		.post-card-content-link {
+			padding-left: 0px;
+		}
 	}
 
 	@media (max-width: 991px) {
@@ -315,6 +319,7 @@ figcaption {
 	display: flex;
     gap: 0.5rem;
     padding: 1rem 0rem;
+	align-items: center;
 }
 
 .gh-announcement-bar,
