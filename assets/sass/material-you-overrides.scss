@@ -186,11 +186,17 @@ ul {
 }
 
 .post-card-large .post-card-content-link .post-card-excerpt {
-    margin-bottom: 0rem;
+	margin-bottom: 0rem;
 }
 
-.featured.post-card-large .post-card-content-link {
-	padding-left: 0px;
+.featured.post-card-large {
+	.post-card-content-link {
+		padding-left: 0px;
+
+		.post-card-excerpt {
+			margin-bottom: 2rem;
+		}
+	}
 }
 
 .post-card.dynamic >* .post-card-content-link  {
