@@ -4,6 +4,12 @@ import { Theme, argbFromHex, themeFromImage, themeFromSourceColor, applyTheme } 
 export class AccentUtil {
 	themeMode: "light" | "dark" = "light";
 	themeRawColorData: Theme | undefined;
+	private imageThemeCache = new Map<string, Theme>();
+	private themeWorker: Worker;
+
+	constructor() {
+		this.themeWorker = new Worker(new URL('./themeWorker.ts', import.meta.url));
+	}
 
 	/**
 	 * Converts ARGB color value to RGB
@@ -98,47 +104,153 @@ export class AccentUtil {
 		}
 	}
 
+	private getArrayBufferFromImage(imgElement: HTMLImageElement): Promise<{ arrayBuffer: ArrayBuffer, width: number, height: number }> {
+		return new Promise((resolve, reject) => {
+			const canvas = document.createElement('canvas');
+			canvas.width = imgElement.width;
+			canvas.height = imgElement.height;
+			const ctx = canvas.getContext('2d');
+
+			if (ctx) {
+				ctx.drawImage(imgElement, 0, 0);
+				canvas.toBlob((blob) => {
+					if (blob) {
+						const reader = new FileReader();
+						reader.onloadend = () => {
+							resolve({ arrayBuffer: reader.result as ArrayBuffer, width: imgElement.width, height: imgElement.height });
+						};
+						reader.onerror = reject;
+						reader.readAsArrayBuffer(blob);
+					} else {
+						reject(new Error('Failed to convert canvas to blob.'));
+					}
+				});
+			} else {
+				reject(new Error('Canvas context is not available.'));
+			}
+		});
+	}
+
+	private getThemeFromImageWorker(arrayBuffer: ArrayBuffer, width: number, height: number): Promise<string> {
+		return new Promise((resolve, reject) => {
+			this.themeWorker.onmessage = (event) => {
+				resolve(event.data);
+			};
+			this.themeWorker.onerror = (error) => {
+				reject(error);
+			};
+			this.themeWorker.postMessage({ arrayBuffer, width, height });
+		});
+	}
+
+	private async getThemeFromImageCached(imgElement: HTMLImageElement): Promise<Theme> {
+		const src = imgElement.src;
+		if (this.imageThemeCache.has(src)) {
+			return this.imageThemeCache.get(src) as Theme;
+		} else {
+			const { arrayBuffer, width, height } = await this.getArrayBufferFromImage(imgElement);
+			const imageUrl = await this.getThemeFromImageWorker(arrayBuffer, width, height);
+			const theme = await this.createImageElementAndExtractTheme(imageUrl);
+			this.imageThemeCache.set(src, theme);
+			return theme;
+		}
+	}
+
+	private createImageElementAndExtractTheme(imageUrl: string): Promise<Theme> {
+		return new Promise((resolve, reject) => {
+			const img = new Image();
+			img.onload = async () => {
+				try {
+					const theme = await themeFromImage(img);
+					resolve(theme);
+				} catch (error) {
+					reject(error);
+				}
+			};
+			img.onerror = reject;
+			img.src = imageUrl;
+		});
+	}
+
 	async setM3ColorAndTarget(
 		parentOfImg: string | null,
 		target: string | HTMLElement,
 		elementClass: Element | HTMLElement | null
 	) {
+		console.time('setM3ColorAndTarget');
+	
 		let theme: Theme | null = null;
 		const parentElement = document.getElementById(parentOfImg);
-		// const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-		// this.themeMode = systemDark ? 'dark' : 'light';
-
+	
+		console.time('parentElementCheck');
 		if (parentElement) {
+			console.timeEnd('parentElementCheck');
+	
+			console.time('imgElementCheck');
 			const imgElement = parentElement.querySelector("img");
 			let color = "";
-
+	
 			if (imgElement) {
-				// color = this.rgbToHex(await this.getColorFromImage(imgElement));
-				// theme = themeFromSourceColor(argbFromHex(color));
-				theme = await themeFromImage(imgElement as HTMLImageElement);
+				console.timeEnd('imgElementCheck');
+	
+				// Wait for the image to fully load
+				await new Promise<void>((resolve, reject) => {
+					if (imgElement.complete) {
+						resolve();
+					} else {
+						imgElement.onload = () => resolve();
+						imgElement.onerror = () => reject(new Error('Image failed to load'));
+					}
+				});
+	
+				console.time('themeFromImage');
+				theme = await this.getThemeFromImageCached(imgElement as HTMLImageElement);
+				console.timeEnd('themeFromImage');
 			} else {
+				console.timeEnd('imgElementCheck');
 				console.error("No <img> element found within the parent element.");
 				theme = themeFromSourceColor(argbFromHex("#b0b2bd"));
 			}
 		} else if (elementClass && elementClass !== null) {
+			console.timeEnd('parentElementCheck');
+	
+			console.time('elementClassCheck');
 			const imgElement = elementClass.querySelector("img");
 			let color = "";
-
+	
 			if (imgElement) {
+				console.timeEnd('elementClassCheck');
+	
+				console.time('imgElementCrossOrigin');
 				imgElement.crossOrigin = "anonymous";
-				// color = this.rgbToHex(await this.getColorFromImage(imgElement));
-				// theme = themeFromSourceColor(argbFromHex(color));
-				theme = await themeFromImage(imgElement as HTMLImageElement);
+				console.timeEnd('imgElementCrossOrigin');
+	
+				// Wait for the image to fully load
+				await new Promise<void>((resolve, reject) => {
+					if (imgElement.complete) {
+						resolve();
+					} else {
+						imgElement.onload = () => resolve();
+						imgElement.onerror = () => reject(new Error('Image failed to load'));
+					}
+				});
+	
+				console.time('themeFromImage');
+				theme = await this.getThemeFromImageCached(imgElement as HTMLImageElement);
+				console.timeEnd('themeFromImage');
 			} else {
+				console.timeEnd('elementClassCheck');
 				console.error("No <img> element found within the parent element.");
 				theme = themeFromSourceColor(argbFromHex("#b0b2bd"));
 			}
 		} else {
+			console.timeEnd('parentElementCheck');
 			console.error("Parent element with ID '" + parentOfImg + "' not found.");
 			theme = themeFromSourceColor(argbFromHex("#b0b2bd"));
 		}
-
+	
 		if (theme) {
+			console.time('applyTheme');
 			applyTheme(
 				theme,
 				{
@@ -146,9 +258,12 @@ export class AccentUtil {
 					dark: this.themeMode === "light" ? false : true
 				}
 			);
-
+			console.timeEnd('applyTheme');
 		}
-
+	
+		console.timeEnd('setM3ColorAndTarget');
+	
 		return theme;
 	}
+	
 }
