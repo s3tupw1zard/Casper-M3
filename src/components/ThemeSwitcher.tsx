@@ -9,7 +9,6 @@ interface ThemeSwitcherProps { }
 interface ThemeSwitcherState {
 	themeMode: 'light' | 'dark';
 	isDarkMode: boolean;
-	prefersDarkSchemeFromIdb: "dark" | "light";
 	idb: Idb;
 	top: string | null;
 }
@@ -19,15 +18,12 @@ class ThemeSwitcher extends Component<ThemeSwitcherProps, ThemeSwitcherState> {
 		super(props);
 		this.state = {
 			themeMode: 'light',
-			isDarkMode: false,
-			prefersDarkSchemeFromIdb: 'light',
+			isDarkMode: window.matchMedia("(prefers-color-scheme: dark)").matches,
 			idb: new Idb(),
 			top: null
 		};
 
 		this.state.idb.connectToIDB();
-		this.setState({ isDarkMode: window.matchMedia("(prefers-color-scheme: dark)").matches });
-
 		this.readSetThemeFromIdb();
 	}
 
@@ -46,18 +42,22 @@ class ThemeSwitcher extends Component<ThemeSwitcherProps, ThemeSwitcherState> {
 	};
 
 	async readSetThemeFromIdb() {
-		const prefersDarkSchemeFromIdb = await this.state.idb.getData("Material You", "preferredColorScheme")
-		// this.setState({ prefersDarkSchemeFromIdb:  });
+		const preferredColorScheme = await this.state.idb.getData("Material You", "preferredColorScheme")
 
-		if (prefersDarkSchemeFromIdb) {
-			this.setThemeMode(prefersDarkSchemeFromIdb);
-			this.setState({ themeMode: prefersDarkSchemeFromIdb });
-		} else if (this.state.isDarkMode && !prefersDarkSchemeFromIdb) {
+		if (preferredColorScheme === "light") {
+			this.setThemeMode("light");
+			this.setState({ themeMode: "light" });
+		} else if (preferredColorScheme === "dark") {
 			this.setThemeMode("dark");
 			this.setState({ themeMode: "dark" });
 		} else {
-			this.setThemeMode("light");
-			this.setState({ themeMode: "light" });
+			if (this.state.isDarkMode) {
+				this.setThemeMode("dark");
+				this.setState({ themeMode: "dark" });
+			} else {
+				this.setThemeMode("light");
+				this.setState({ themeMode: "light" });
+			}
 		}
 	}
 
